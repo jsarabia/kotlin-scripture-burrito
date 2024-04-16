@@ -13,174 +13,40 @@ import java.util.*
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
 class DerivedMetaSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
     var category: Any? = null
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("dateCreated")
     @set:JsonProperty("dateCreated")
     @JsonProperty("dateCreated")
     var dateCreated: Date? = null
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("version")
     @set:JsonProperty("version")
     @JsonProperty("version")
     @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
     var version: MetaVersionSchema? = null
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
+
     @get:JsonProperty("generator")
     @set:JsonProperty("generator")
     @JsonProperty("generator")
     var generator: SoftwareAndUserInfoSchema? = null
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("defaultLocale")
     @set:JsonProperty("defaultLocale")
     @JsonProperty("defaultLocale")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var defaultLocale: String? = null
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
+
     @get:JsonProperty("normalization")
     @set:JsonProperty("normalization")
     @JsonProperty("normalization")
     @JsonPropertyDescription("Unicode normalization options. This applies to both ingredients and metadata.")
     var normalization: NormalizationSchema? = null
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
+
     @get:JsonProperty("comments")
     @set:JsonProperty("comments")
     @JsonProperty("comments")
@@ -264,7 +130,6 @@ class DerivedMetaSchema {
      *
      */
     enum class MetaVersionSchema(private val value: String) {
-        _1_0_0("1.0.0");
 
         override fun toString(): String {
             return this.value
@@ -276,19 +141,9 @@ class DerivedMetaSchema {
         }
 
         companion object {
-            private val CONSTANTS: MutableMap<String, MetaVersionSchema> = HashMap()
-
-            init {
-                for (c in values()) {
-                    CONSTANTS[c.value] = c
-                }
-            }
-
             @JsonCreator
-            fun fromValue(value: String?): MetaVersionSchema {
-                val constant = CONSTANTS[value]
-                requireNotNull(constant) { value }
-                return constant
+            fun fromValue(value: String): MetaVersionSchema {
+                return MetaVersionSchema(value)
             }
         }
     }
