@@ -129,7 +129,7 @@ class DerivedMetaSchema {
      * Version of the Scripture Burrito specification this file follows.
      *
      */
-    enum class MetaVersionSchema(private val value: String) {
+    data class MetaVersionSchema(private val value: String) {
 
         override fun toString(): String {
             return this.value
