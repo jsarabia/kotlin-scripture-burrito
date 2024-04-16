@@ -2,6 +2,7 @@ package org.wycliffeassociates.resourcecontainer
 
 import org.junit.Assert
 import org.junit.Test
+import org.wycliffeassociates.container.accessors.ZipAccessor
 import java.io.File
 import java.io.FileNotFoundException
 

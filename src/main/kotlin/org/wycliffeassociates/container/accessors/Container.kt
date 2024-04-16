@@ -36,7 +36,10 @@ interface Config {
  *  This is an object that holds resource until it is closed. It is strongly advised to
  *  use within a disposable use() block or manually invoke the close() method.
  */
-class ResourceContainer private constructor(val file: File, var config: Config? = null) : AutoCloseable {
+class Container private constructor(
+    val file: File,
+    var config: Config? = null
+) : AutoCloseable {
 
     lateinit var manifest: Manifest
     var media: MediaManifest? = null
@@ -249,11 +252,3 @@ class ResourceContainer private constructor(val file: File, var config: Config? 
         accessor.close()
     }
 }
-
-data class Resource(
-    val slug: String,
-    val title: String,
-    val type: String,
-    val checkingLevel: String,
-    val version: String
-)

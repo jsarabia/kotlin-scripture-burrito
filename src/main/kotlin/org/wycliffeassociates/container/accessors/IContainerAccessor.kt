@@ -1,11 +1,10 @@
-package org.wycliffeassociates.resourcecontainer
+package org.wycliffeassociates.container.accessors
 
 import java.io.InputStream
 import java.io.OutputStream
 import java.io.Reader
-import java.io.Writer
 
-interface IResourceContainerAccessor: AutoCloseable {
+interface IContainerAccessor: AutoCloseable {
     fun fileExists(filename: String): Boolean
 
     /**

@@ -1,8 +1,8 @@
-package org.wycliffeassociates.resourcecontainer
+package org.wycliffeassociates.container.accessors
 
 import java.io.*
 
-class DirectoryAccessor(private val rootDir: File) : IResourceContainerAccessor {
+class DirectoryAccessor(private val rootDir: File) : IContainerAccessor {
 
     override fun list(path: String): List<String> {
         val normalizedPath = File(path).normalize().invariantSeparatorsPath
