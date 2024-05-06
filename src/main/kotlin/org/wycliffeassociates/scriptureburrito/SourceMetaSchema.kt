@@ -29,7 +29,7 @@ class SourceMetaSchema: Meta() {
     @JsonProperty("version")
     @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
     var version: MetaVersionSchema? = null
-    
+
     @get:JsonProperty("generator")
     @set:JsonProperty("generator")
     @JsonProperty("generator")

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder(
     "flavorType"
 )
-class TypeSchema {
+abstract class TypeSchema {
     @get:JsonProperty("flavorType")
     @set:JsonProperty("flavorType")
     @JsonProperty("flavorType")

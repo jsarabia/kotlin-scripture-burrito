@@ -83,7 +83,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
 
         val metadata: MetadataSchema = when (format) {
             "source" -> SourceMetadataSchema(pkg as SourceMetaSchema)
-            "derived" -> DerivedMetadataSchema(pkg as DerivedMetaSchema) as MetadataSchema
+            "derived" -> DerivedMetadataSchema(pkg as DerivedMetaSchema)
             // "template" -> metadata = TemplateMetadataSchema(pkg as TemplateMetaSchema) as MetadataSchema
             else -> throw JsonMappingException("Unsupported format string: $format")
         }

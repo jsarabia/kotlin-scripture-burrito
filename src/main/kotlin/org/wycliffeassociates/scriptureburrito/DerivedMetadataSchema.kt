@@ -50,9 +50,7 @@ class DerivedMetadataSchema: MetadataSchema {
     @JsonProperty("idAuthorities")
     @JsonPropertyDescription("Declares one or more identity authorities which may later be referred to using identifier prefixes.")
     var idAuthorities: IdAuthoritiesSchema? = null
-    
-    
-    
+
     @get:JsonProperty("identification")
     @set:JsonProperty("identification")
     @JsonProperty("identification")

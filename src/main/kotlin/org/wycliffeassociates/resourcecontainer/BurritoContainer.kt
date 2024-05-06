@@ -30,7 +30,7 @@ const val MANIFEST_FILENAME = "metadata.json"
 
 class BurritoContainer internal constructor(val file: File) : AutoCloseable {
 
-    lateinit var manifest: Meta
+    lateinit var manifest: MetadataSchema
 
     val accessor: IContainerAccessor = when {
         // file may not exist at creation of a rc with .zip suffix in file path
@@ -143,7 +143,7 @@ class BurritoContainer internal constructor(val file: File) : AutoCloseable {
 //    fun conformsTo(): String = manifest.dublinCore.conformsTo.replace(Regex("^rc"), "")
 
     
-    fun type(): String = this.manifest.category.toString()
+    fun type(): String = this.manifest.meta!!.category.toString()
 
     companion object {
 
