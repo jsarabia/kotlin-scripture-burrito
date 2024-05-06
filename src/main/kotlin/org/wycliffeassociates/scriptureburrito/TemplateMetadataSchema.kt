@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Format
 
-/**
- * Metadata (Template)
- *
- *
- * Scripture Burrito Template root.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "format",
@@ -35,290 +29,89 @@ class TemplateMetadataSchema {
     @JsonProperty("meta")
     @JsonPropertyDescription("Information about the Scripture Burrito metadata file.")
     var meta: Meta? = null
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     *
-     */
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     *
-     */
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("idAuthorities")
     @set:JsonProperty("idAuthorities")
     @JsonProperty("idAuthorities")
     @JsonPropertyDescription("Declares one or more identity authorities which may later be referred to using identifier prefixes.")
     var idAuthorities: IdAuthoritiesSchema? = null
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     *
-     */
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     *
-     */
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("identification")
     @set:JsonProperty("identification")
     @JsonProperty("identification")
     @JsonPropertyDescription("Identification section.")
     var identification: IdentificationSchema? = null
-    /**
-     * Confidential
-     *
-     *
-     * a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.
-     *
-     */
-    /**
-     * Confidential
-     *
-     *
-     * a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.
-     *
-     */
-    /**
-     * Confidential
-     *
-     *
-     * a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("confidential")
     @set:JsonProperty("confidential")
     @JsonProperty("confidential")
     @JsonPropertyDescription("a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.")
     var confidential: Boolean? = null
-    /**
-     * Type
-     *
-     *
-     * Contains properties describing the burrito flavor type.
-     *
-     */
-    /**
-     * Type
-     *
-     *
-     * Contains properties describing the burrito flavor type.
-     *
-     */
-    /**
-     * Type
-     *
-     *
-     * Contains properties describing the burrito flavor type.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("type")
     @set:JsonProperty("type")
     @JsonProperty("type")
     @JsonPropertyDescription("Contains properties describing the burrito flavor type.")
     var type: TypeSchema? = null
-    /**
-     * Relationships
-     *
-     *
-     * Describes a relationship to another burrito that may be obtained from an indicated server.
-     *
-     */
-    /**
-     * Relationships
-     *
-     *
-     * Describes a relationship to another burrito that may be obtained from an indicated server.
-     *
-     */
-    /**
-     * Relationships
-     *
-     *
-     * Describes a relationship to another burrito that may be obtained from an indicated server.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("relationships")
     @set:JsonProperty("relationships")
     @JsonProperty("relationships")
     @JsonPropertyDescription("Describes a relationship to another burrito that may be obtained from an indicated server.")
     var relationships: List<RelationshipSchema>? = ArrayList()
-    /**
-     * Languages
-     *
-     *
-     * A list of all the languages of the contents of this burrito.
-     *
-     */
-    /**
-     * Languages
-     *
-     *
-     * A list of all the languages of the contents of this burrito.
-     *
-     */
-    /**
-     * Languages
-     *
-     *
-     * A list of all the languages of the contents of this burrito.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("languages")
     @set:JsonProperty("languages")
     @JsonProperty("languages")
     @JsonPropertyDescription("A list of all the languages of the contents of this burrito.")
     var languages: List<LanguageSchema>? = ArrayList()
-    /**
-     * Target Areas
-     *
-     *
-     * A list of areas of the primary target audience of this burrito.
-     *
-     */
-    /**
-     * Target Areas
-     *
-     *
-     * A list of areas of the primary target audience of this burrito.
-     *
-     */
-    /**
-     * Target Areas
-     *
-     *
-     * A list of areas of the primary target audience of this burrito.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("targetAreas")
     @set:JsonProperty("targetAreas")
     @JsonProperty("targetAreas")
     @JsonPropertyDescription("A list of areas of the primary target audience of this burrito.")
     var targetAreas: List<TargetAreaSchema>? = ArrayList()
-    /**
-     * Agencies
-     *
-     *
-     * A list of agencies involved with the contents of the burrito or the work it is derived from.
-     *
-     */
-    /**
-     * Agencies
-     *
-     *
-     * A list of agencies involved with the contents of the burrito or the work it is derived from.
-     *
-     */
-    /**
-     * Agencies
-     *
-     *
-     * A list of agencies involved with the contents of the burrito or the work it is derived from.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("agencies")
     @set:JsonProperty("agencies")
     @JsonProperty("agencies")
     @JsonPropertyDescription("A list of agencies involved with the contents of the burrito or the work it is derived from.")
     var agencies: List<AgencySchema>? = ArrayList()
-    /**
-     * Copyright and License Information
-     *
-     *
-     * Describes the copyright holders and license terms of the burrito.
-     * (Required)
-     *
-     */
-    /**
-     * Copyright and License Information
-     *
-     *
-     * Describes the copyright holders and license terms of the burrito.
-     * (Required)
-     *
-     */
-    /**
-     * Copyright and License Information
-     *
-     *
-     * Describes the copyright holders and license terms of the burrito.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("copyright")
     @set:JsonProperty("copyright")
     @JsonProperty("copyright")
     @JsonPropertyDescription("Describes the copyright holders and license terms of the burrito.")
     var copyright: CopyrightSchema? = null
-    /**
-     * Ingredients
-     *
-     *
-     * Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.
-     *
-     */
-    /**
-     * Ingredients
-     *
-     *
-     * Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.
-     *
-     */
-    /**
-     * Ingredients
-     *
-     *
-     * Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("ingredients")
     @set:JsonProperty("ingredients")
     @JsonProperty("ingredients")
     @JsonPropertyDescription("Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.")
     var ingredients: IngredientsSchema? = null
-    /**
-     * Localized Names
-     *
-     *
-     * Contains localized names for books, etc.
-     *
-     */
-    /**
-     * Localized Names
-     *
-     *
-     * Contains localized names for books, etc.
-     *
-     */
-    /**
-     * Localized Names
-     *
-     *
-     * Contains localized names for books, etc.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("localizedNames")
     @set:JsonProperty("localizedNames")
     @JsonProperty("localizedNames")

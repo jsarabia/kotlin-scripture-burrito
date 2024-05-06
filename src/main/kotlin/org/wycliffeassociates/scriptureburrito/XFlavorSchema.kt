@@ -2,13 +2,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Flavor Details: X-Flavor
- *
- *
- * Schema of flavor field for xFlavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name"

@@ -9,13 +9,7 @@ import scripture.Conventions
 import scripture.Formats
 import scripture.Performance
 
-/**
- * Flavor Details: Audio Translation
- *
- *
- * Schema of flavor field of scripture/audioTranslation flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "performance", "formats", "conventions"

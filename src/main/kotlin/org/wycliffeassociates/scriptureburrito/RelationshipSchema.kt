@@ -1,12 +1,6 @@
 import com.fasterxml.jackson.annotation.*
 
-/**
- * Relationship
- *
- *
- * Describes a relationship to a different burrito that can be obtained from an indicated server.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "relationType", "flavor", "id", "revision", "variant"
@@ -26,38 +20,17 @@ class RelationshipSchema {
     @set:JsonProperty("flavor")
     @JsonProperty("flavor")
     var flavor: String? = null
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("id")
     @set:JsonProperty("id")
     @JsonProperty("id")
     @JsonPropertyDescription("Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.")
     var id: String? = null
-    /**
-     * Opaque system-specific revision identifier.
-     *
-     */
-    /**
-     * Opaque system-specific revision identifier.
-     *
-     */
-    /**
-     * Opaque system-specific revision identifier.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("revision")
     @set:JsonProperty("revision")
     @JsonProperty("revision")

@@ -3,9 +3,7 @@ package org.wycliffeassociates.resourcecontainer.entity
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-/**
- * Represents a link to a resource container
- */
+
 
 class Link {
     var title: String?
@@ -19,32 +17,19 @@ class Link {
     val chunk: String?
     val lastChunk: String?
 
-    /**
-     * Checks if this is an external link
-     * @return
-     */
+    
     val isExternal: Boolean
         get() = this.url != null
 
-    /**
-     * Checks if this is a media link
-     * @return
-     */
+    
     val isMedia: Boolean
         get() = this.protocol != null
 
-    /**
-     * Checksk if this is a Bible passage link
-     * @return
-     */
+    
     val isPassage: Boolean
         get() = this.chapter != null && this.chunk != null
 
-    /**
-     * Creates a simple external link
-     * @param title the human readable title of the link
-     * @param url the external link address
-     */
+    
     private constructor(title: String?, url: String?) {
         this.title = title
         this.url = url
@@ -59,19 +44,7 @@ class Link {
         language = null
     }
 
-    /**
-     * Creates a new resource container link.
-     *
-     * @param protocol used to indicate if this is a media link
-     * @param title the human readable title of the link
-     * @param language the language of the linked resource container
-     * @param project the project of the linked resource container
-     * @param resource the resource of the linked resource container
-     * @param arguments the raw arguments on the link
-     * @param chapter the chapter in the linked resource container
-     * @param chunk the chunk (first one if the arguments included a range of chunks) in the linked resource container
-     * @param lastChunk the last chunk (if the arguments included a range of chunks) referenced by this link
-     */
+    
     private constructor(protocol: String?, title: String?, language: String?, project: String?, resource: String?, arguments: String?, chapter: String?, chunk: String?, lastChunk: String?) {
         this.url = null
         this.protocol = protocol
@@ -85,10 +58,7 @@ class Link {
         this.lastChunk = lastChunk
     }
 
-    /**
-     * Returns the formatted passage title e.g. 1:2-3
-     * @return
-     */
+    
     fun passageTitle(): String? {
         if (isPassage) {
             var tail = ""
@@ -98,12 +68,7 @@ class Link {
         return null
     }
 
-    /**
-     * Attempts to format the string as a number (without leading 0's)
-     * otherwise the original value will be returned.
-     * @param value
-     * @return
-     */
+    
     private fun formatNumber(value: String?): String {
         try {
             return Integer.parseInt(value!!).toString() + ""
@@ -115,12 +80,7 @@ class Link {
 
     companion object {
 
-        /**
-         * Parses a link. This could be an external link or a resource container link
-         *
-         * @param link
-         * @throws Exception if the link is invalid
-         */
+        
         @Throws(Exception::class)
         fun parseLink(link: String): Link? {
             val anonymousPattern = Pattern.compile("\\[\\[([^\\]]*)\\]\\]", Pattern.DOTALL)
@@ -159,7 +119,7 @@ class Link {
 
         }
 
-        /** Parses a resource container link */
+        
         private fun parseResourceLink(titleIn: String?, pathIn: String): Link? {
             var title = titleIn
             var path = pathIn
@@ -257,23 +217,12 @@ class Link {
         }
 
 
-        /**
-         * Returns the value if it is not empty otherwise null
-         * @param value
-         * @return
-         */
+        
         private fun nullEmpty(value: String?): String? {
             return if (value != null && value.isEmpty()) null else value
         }
 
-        /**
-         * Returns a list of links found in the text.
-         * This is used to turn inline Bible passages into links.
-         * The returned links will include their position within the charsequence
-         *
-         * @param text the text that will be searched for Bible passages
-         * @return
-         */
+        
         fun findLinks(@Suppress("UNUSED_PARAMETER") text: CharSequence): List<Link> {
             TODO("10/11/16 automatically parse bible passages.")
         }

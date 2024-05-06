@@ -1,10 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * A simplified XHTML string specified in one or multiple languages, indexed by IETF language tag.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder
 class LocalizedRichText {

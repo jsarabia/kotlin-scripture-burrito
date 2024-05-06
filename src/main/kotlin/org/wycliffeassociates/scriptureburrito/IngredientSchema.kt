@@ -3,70 +3,31 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Ingredient
- *
- *
- * Describes an individual ingredient, which is a file contained within the burrito.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "size", "lang", "mimeType", "checksum", "scope", "role"
 )
 class IngredientSchema {
-    /**
-     * The number of bytes that this ingredient takes up on disk.
-     * (Required)
-     *
-     */
-    /**
-     * The number of bytes that this ingredient takes up on disk.
-     * (Required)
-     *
-     */
-    /**
-     * The number of bytes that this ingredient takes up on disk.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("size")
     @set:JsonProperty("size")
     @JsonProperty("size")
     @JsonPropertyDescription("The number of bytes that this ingredient takes up on disk.")
     var size: Int? = null
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("lang")
     @set:JsonProperty("lang")
     @JsonProperty("lang")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var lang: String? = null
-    /**
-     * An IANA media type (also known as MIME type)
-     * (Required)
-     *
-     */
-    /**
-     * An IANA media type (also known as MIME type)
-     * (Required)
-     *
-     */
-    /**
-     * An IANA media type (also known as MIME type)
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("mimeType")
     @set:JsonProperty("mimeType")
     @JsonProperty("mimeType")
@@ -77,53 +38,17 @@ class IngredientSchema {
     @set:JsonProperty("checksum")
     @JsonProperty("checksum")
     var checksum: Checksum? = null
-    /**
-     * Scope
-     *
-     *
-     * Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.
-     *
-     */
-    /**
-     * Scope
-     *
-     *
-     * Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.
-     *
-     */
-    /**
-     * Scope
-     *
-     *
-     * Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("scope")
     @set:JsonProperty("scope")
     @JsonProperty("scope")
     @JsonPropertyDescription("Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.")
     var scope: ScopeSchema? = null
-    /**
-     * Role
-     *
-     *
-     * Roles which may be optionally attached to an ingredient.
-     *
-     */
-    /**
-     * Role
-     *
-     *
-     * Roles which may be optionally attached to an ingredient.
-     *
-     */
-    /**
-     * Role
-     *
-     *
-     * Roles which may be optionally attached to an ingredient.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("role")
     @set:JsonProperty("role")
     @JsonProperty("role")

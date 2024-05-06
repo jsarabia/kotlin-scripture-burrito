@@ -7,13 +7,7 @@ import scripture.Conventions
 import scripture.Formats
 import scripture.SignLanguageVideoTranslationSchema
 
-/**
- * Flavor Details: Scripture: Sign Language Video Translation
- *
- *
- * Schema of flavor field for signLanguageVideoTranslation flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "contentByChapter", "formats", "conventions"

@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Format
 
-/**
- * Metadata (Derived)
- *
- *
- * Scripture Burrito derived variant root.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "format",
@@ -36,30 +30,9 @@ class DerivedMetadataSchema: MetadataSchema {
     @set:JsonProperty("format")
     @JsonProperty("format")
     var format: Format? = null
-    /**
-     * Meta (Derived)
-     *
-     *
-     * Information about the Scripture Burrito metadata file.
-     * (Required)
-     *
-     */
-    /**
-     * Meta (Derived)
-     *
-     *
-     * Information about the Scripture Burrito metadata file.
-     * (Required)
-     *
-     */
-    /**
-     * Meta (Derived)
-     *
-     *
-     * Information about the Scripture Burrito metadata file.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("meta")
     @set:JsonProperty("meta")
     @JsonProperty("meta")
@@ -69,59 +42,17 @@ class DerivedMetadataSchema: MetadataSchema {
     val metadata: DerivedMetaSchema?
         get() = meta as DerivedMetaSchema?
 
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     * (Required)
-     *
-     */
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     * (Required)
-     *
-     */
-    /**
-     * idAuthorities
-     *
-     *
-     * Declares one or more identity authorities which may later be referred to using identifier prefixes.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("idAuthorities")
     @set:JsonProperty("idAuthorities")
     @JsonProperty("idAuthorities")
     @JsonPropertyDescription("Declares one or more identity authorities which may later be referred to using identifier prefixes.")
     var idAuthorities: IdAuthoritiesSchema? = null
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     * (Required)
-     *
-     */
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     * (Required)
-     *
-     */
-    /**
-     * Identification
-     *
-     *
-     * Identification section.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("identification")
     @set:JsonProperty("identification")
     @JsonProperty("identification")

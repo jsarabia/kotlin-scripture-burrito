@@ -5,13 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import gloss.TextStoriesSchema
 
-/**
- * Flavor Details: Glossed Text Stories
- *
- *
- * Schema of flavor field for textStories flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name"

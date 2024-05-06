@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Localized Names
- *
- *
- * Contains localized names for books, etc.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder
 class LocalizedNamesSchema {

@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
-/**
- * UNM49 enum
- *
- *
- * UNM49 region code enum
- *
- */
+
 enum class Unm49Schema(private val value: String) {
     _001("001"),
     _002("002"),

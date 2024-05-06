@@ -3,13 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Recipe Element
- *
- *
- * Scripture Burrito recipe element.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "type", "nameId", "ingredient"
@@ -22,38 +16,17 @@ class RecipeElementSchema {
     @set:JsonProperty("type")
     @JsonProperty("type")
     var type: Any? = null
-    /**
-     * Opaque system-specific identifier, without prefix.
-     *
-     */
-    /**
-     * Opaque system-specific identifier, without prefix.
-     *
-     */
-    /**
-     * Opaque system-specific identifier, without prefix.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("nameId")
     @set:JsonProperty("nameId")
     @JsonProperty("nameId")
     @JsonPropertyDescription("Opaque system-specific identifier, without prefix.")
     var nameId: String? = null
-    /**
-     * A file path, delimited by forward slashes.
-     * (Required)
-     *
-     */
-    /**
-     * A file path, delimited by forward slashes.
-     * (Required)
-     *
-     */
-    /**
-     * A file path, delimited by forward slashes.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("ingredient")
     @set:JsonProperty("ingredient")
     @JsonProperty("ingredient")

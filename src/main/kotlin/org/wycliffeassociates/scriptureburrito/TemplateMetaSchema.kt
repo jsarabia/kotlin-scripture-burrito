@@ -7,13 +7,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import org.wycliffeassociates.scriptureburrito.Category
 import java.util.*
 
-/**
- * Meta (Template)
- *
- *
- * Information about the Scripture Burrito metadata file.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "category", "templateName", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
@@ -24,175 +18,55 @@ class TemplateMetaSchema : Meta() {
     @set:JsonProperty("category")
     @JsonProperty("category")
     override var category: Category? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("templateName")
     @set:JsonProperty("templateName")
     @JsonProperty("templateName")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var templateName: LocalizedText? = null
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("dateCreated")
     @set:JsonProperty("dateCreated")
     @JsonProperty("dateCreated")
     var dateCreated: Date? = null
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("version")
     @set:JsonProperty("version")
     @JsonProperty("version")
     @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
     var version: MetaVersionSchema? = null
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
-    /**
-     * Software and User Info
-     *
-     *
-     *
-     *
-     */
+    
+    
+    
     @get:JsonProperty("generator")
     @set:JsonProperty("generator")
     @JsonProperty("generator")
     var generator: SoftwareAndUserInfoSchema? = null
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("defaultLocale")
     @set:JsonProperty("defaultLocale")
     @JsonProperty("defaultLocale")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var defaultLocale: String? = null
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("normalization")
     @set:JsonProperty("normalization")
     @JsonProperty("normalization")
     @JsonPropertyDescription("Unicode normalization options. This applies to both ingredients and metadata.")
     var normalization: NormalizationSchema? = null
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
-    /**
-     * Meta Comments
-     *
-     *
-     * Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("comments")
     @set:JsonProperty("comments")
     @JsonProperty("comments")

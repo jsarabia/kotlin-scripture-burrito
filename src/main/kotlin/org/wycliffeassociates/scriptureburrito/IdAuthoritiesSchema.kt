@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * idAuthorities
- *
- *
- * Declares one or more identity authorities which may later be referred to using identifier prefixes.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder
 class IdAuthoritiesSchema {

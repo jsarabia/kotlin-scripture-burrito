@@ -8,35 +8,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "url", "ingredient"
 )
 class License {
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("url")
     @set:JsonProperty("url")
     @JsonProperty("url")
     @JsonPropertyDescription("A valid **Uniform Resource Locator**.")
     var url: String? = null
-    /**
-     * A file path, delimited by forward slashes.
-     *
-     */
-    /**
-     * A file path, delimited by forward slashes.
-     *
-     */
-    /**
-     * A file path, delimited by forward slashes.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("ingredient")
     @set:JsonProperty("ingredient")
     @JsonProperty("ingredient")

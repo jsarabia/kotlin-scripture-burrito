@@ -15,35 +15,17 @@ class ShortStatement {
     @set:JsonProperty("statement")
     @JsonProperty("statement")
     var statement: String? = null
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("lang")
     @set:JsonProperty("lang")
     @JsonProperty("lang")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var lang: String? = null
-    /**
-     * An IANA media type (also known as MIME type)
-     *
-     */
-    /**
-     * An IANA media type (also known as MIME type)
-     *
-     */
-    /**
-     * An IANA media type (also known as MIME type)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("mimetype")
     @set:JsonProperty("mimetype")
     @JsonProperty("mimetype")

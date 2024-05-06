@@ -1,13 +1,7 @@
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Scope
- *
- *
- * Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder
 class ScopeSchema {

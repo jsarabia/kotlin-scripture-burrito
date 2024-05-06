@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.*
 import scripture.Conventions
 import scripture.TextTranslationSchema
 
-/**
- * Flavor Details: scripture/textTranslation
- *
- *
- * Schema of flavor field for textTranslation flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "projectType", "translationType", "audience", "usfmVersion", "conventions"

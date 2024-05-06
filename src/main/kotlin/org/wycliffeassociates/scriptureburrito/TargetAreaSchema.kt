@@ -3,13 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Target Area
- *
- *
- * An area that is a primary target audience of this burrito.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "code", "name"
@@ -22,21 +16,9 @@ class TargetAreaSchema {
     @set:JsonProperty("code")
     @JsonProperty("code")
     var code: Any? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")

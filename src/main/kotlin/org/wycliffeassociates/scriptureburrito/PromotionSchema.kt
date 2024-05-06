@@ -3,47 +3,23 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Promotional Statements
- *
- *
- * Contains promotional statements for the burrito.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "statementPlain", "statementRich"
 )
 class PromotionSchema {
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("statementPlain")
     @set:JsonProperty("statementPlain")
     @JsonProperty("statementPlain")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var statementPlain: LocalizedText? = null
-    /**
-     * A simplified XHTML string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A simplified XHTML string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A simplified XHTML string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("statementRich")
     @set:JsonProperty("statementRich")
     @JsonProperty("statementRich")

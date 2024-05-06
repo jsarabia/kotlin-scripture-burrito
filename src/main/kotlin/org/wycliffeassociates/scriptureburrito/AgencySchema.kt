@@ -3,107 +3,47 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Agency
- *
- *
- * Describes a particular agency that is involved with or related to the contents of the burrito.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "id", "name", "abbr", "url", "roles"
 )
 class AgencySchema {
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("id")
     @set:JsonProperty("id")
     @JsonProperty("id")
     @JsonPropertyDescription("Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.")
     var id: String? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var name: LocalizedText? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("abbr")
     @set:JsonProperty("abbr")
     @JsonProperty("abbr")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var abbr: LocalizedText? = null
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
-    /**
-     * A valid **Uniform Resource Locator**.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("url")
     @set:JsonProperty("url")
     @JsonProperty("url")
     @JsonPropertyDescription("A valid **Uniform Resource Locator**.")
     var url: String? = null
-    /**
-     * A list of roles indicating in which respects this agency was involved with the production of this burrito.
-     * (Required)
-     *
-     */
-    /**
-     * A list of roles indicating in which respects this agency was involved with the production of this burrito.
-     * (Required)
-     *
-     */
-    /**
-     * A list of roles indicating in which respects this agency was involved with the production of this burrito.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("roles")
     @set:JsonProperty("roles")
     @JsonProperty("roles")

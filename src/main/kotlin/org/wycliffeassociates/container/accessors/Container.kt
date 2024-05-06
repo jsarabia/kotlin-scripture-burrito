@@ -32,10 +32,7 @@ interface Config {
     fun write(writer: OutputStream)
 }
 
-/**
- *  This is an object that holds resource until it is closed. It is strongly advised to
- *  use within a disposable use() block or manually invoke the close() method.
- */
+
 class Container private constructor(
     val file: File,
     var config: Config? = null
@@ -128,12 +125,7 @@ class Container private constructor(
         }
     }
 
-    /**
-     * @param file the file to copy into the resource container
-     * @param pathInRC the path in the rc to write to (should include file name)
-     *
-     * Adds a file to the Resource Container (such as adding media like audio or images)
-     */
+    
     fun addFileToContainer(file: File, pathInRC: String) {
         accessor.write(pathInRC) { ofs ->
             file.inputStream().use { ifs ->
@@ -142,9 +134,7 @@ class Container private constructor(
         }
     }
 
-    /**
-     *  @since 0.8.0
-     */
+    
     fun getProjectContent(projectIdentifier: String? = null, extension: String): Content? {
         val project = project(projectIdentifier) ?: return null
 
@@ -156,12 +146,7 @@ class Container private constructor(
         }
     }
 
-    /**
-     * @param files a map that includes the path where the file should be
-     * placed within the Resource Container as well as the file to insert
-     *
-     * Adds a files to the Resource Container (such as adding media like audio or images)
-     */
+    
     fun addFilesToContainer(files: Map<String, File>) {
         val map = files.entries.associate { (pathInRC, file) ->
             pathInRC to { ofs: OutputStream ->
@@ -208,11 +193,7 @@ class Container private constructor(
 
     fun conformsTo(): String = manifest.dublinCore.conformsTo.replace(Regex("^rc"), "")
 
-    /**
-     * Convenience method to get the type of the resource container.
-     *
-     * @return the RC type
-     */
+    
     fun type(): String = this.manifest.dublinCore.type
 
     companion object {

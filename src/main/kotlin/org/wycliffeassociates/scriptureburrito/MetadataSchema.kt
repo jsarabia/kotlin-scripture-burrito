@@ -10,13 +10,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import java.io.IOException
 
 
-/**
- * Metadata
- *
- *
- * Scripture Burrito root metadata object.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "meta",

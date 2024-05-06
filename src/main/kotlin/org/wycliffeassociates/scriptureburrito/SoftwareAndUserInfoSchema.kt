@@ -3,87 +3,39 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Software and User Info
- *
- *
- *
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "softwareName", "softwareVersion", "userId", "userName"
 )
 class SoftwareAndUserInfoSchema {
-    /**
-     * The name of the program used.
-     * (Required)
-     *
-     */
-    /**
-     * The name of the program used.
-     * (Required)
-     *
-     */
-    /**
-     * The name of the program used.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("softwareName")
     @set:JsonProperty("softwareName")
     @JsonProperty("softwareName")
     @JsonPropertyDescription("The name of the program used.")
     var softwareName: String? = null
-    /**
-     * The version of the program used.
-     * (Required)
-     *
-     */
-    /**
-     * The version of the program used.
-     * (Required)
-     *
-     */
-    /**
-     * The version of the program used.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("softwareVersion")
     @set:JsonProperty("softwareVersion")
     @JsonProperty("softwareVersion")
     @JsonPropertyDescription("The version of the program used.")
     var softwareVersion: String? = null
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     *
-     */
-    /**
-     * Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("userId")
     @set:JsonProperty("userId")
     @JsonProperty("userId")
     @JsonPropertyDescription("Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.")
     var userId: String? = null
-    /**
-     * The user's full name, if known.
-     *
-     */
-    /**
-     * The user's full name, if known.
-     *
-     */
-    /**
-     * The user's full name, if known.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("userName")
     @set:JsonProperty("userName")
     @JsonProperty("userName")

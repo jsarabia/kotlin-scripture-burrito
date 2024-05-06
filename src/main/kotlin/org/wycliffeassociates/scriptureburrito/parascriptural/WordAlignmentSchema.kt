@@ -7,13 +7,7 @@ import parascriptural.ManualAlignment
 import parascriptural.Stemmer
 import parascriptural.WordAlignmentSchema
 
-/**
- * Flavor Details: Parascriptural Word Alignment
- *
- *
- * Schema of flavor field for word alignment flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "autoAlignerVersion", "stopWords", "stemmer", "manualAlignment"

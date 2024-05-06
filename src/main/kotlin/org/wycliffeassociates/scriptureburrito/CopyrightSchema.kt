@@ -3,64 +3,31 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Copyright and License Information
- *
- *
- * Describes the copyright holders and license terms of the burrito.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "licenses", "publicDomain", "shortStatements"
 )
 class CopyrightSchema {
-    /**
-     * The licenses, which state under which terms the burrito may be used, can be specified either as URL or as path to an ingredient.
-     *
-     */
-    /**
-     * The licenses, which state under which terms the burrito may be used, can be specified either as URL or as path to an ingredient.
-     *
-     */
-    /**
-     * The licenses, which state under which terms the burrito may be used, can be specified either as URL or as path to an ingredient.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("licenses")
     @set:JsonProperty("licenses")
     @JsonProperty("licenses")
     @JsonPropertyDescription("The licenses, which state under which terms the burrito may be used, can be specified either as URL or as path to an ingredient.")
     var licenses: List<License>? = ArrayList()
-    /**
-     * If set to true, the contents of this burrito are in the public domain.
-     *
-     */
-    /**
-     * If set to true, the contents of this burrito are in the public domain.
-     *
-     */
-    /**
-     * If set to true, the contents of this burrito are in the public domain.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("publicDomain")
     @set:JsonProperty("publicDomain")
     @JsonProperty("publicDomain")
     @JsonPropertyDescription("If set to true, the contents of this burrito are in the public domain.")
     var publicDomain: Boolean? = null
-    /**
-     * A short statement to explain the copyright / license information to readers
-     *
-     */
-    /**
-     * A short statement to explain the copyright / license information to readers
-     *
-     */
-    /**
-     * A short statement to explain the copyright / license information to readers
-     *
-     */
+    
+    
+    
     @get:JsonProperty("shortStatements")
     @set:JsonProperty("shortStatements")
     @JsonProperty("shortStatements")

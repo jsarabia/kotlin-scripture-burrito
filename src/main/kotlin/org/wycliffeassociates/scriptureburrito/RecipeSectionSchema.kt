@@ -3,13 +3,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Recipe Section
- *
- *
- * Scripture Burrito recipe section.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "type", "nameId", "content"
@@ -22,21 +16,9 @@ class RecipeSectionSchema {
     @set:JsonProperty("type")
     @JsonProperty("type")
     var type: Any? = null
-    /**
-     * Opaque system-specific identifier, without prefix.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, without prefix.
-     * (Required)
-     *
-     */
-    /**
-     * Opaque system-specific identifier, without prefix.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("nameId")
     @set:JsonProperty("nameId")
     @JsonProperty("nameId")

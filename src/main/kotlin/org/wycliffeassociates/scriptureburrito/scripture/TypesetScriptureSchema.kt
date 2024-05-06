@@ -5,13 +5,7 @@ import scripture.Conventions
 import scripture.EdgeSpace
 import scripture.TypesetScriptureSchema
 
-/**
- * Flavor Details: Scripture: Print Publication
- *
- *
- * Schema of flavor field for scripture/printPublication flavor
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name",

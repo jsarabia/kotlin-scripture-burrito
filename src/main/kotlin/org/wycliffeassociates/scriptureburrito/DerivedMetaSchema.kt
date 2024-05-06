@@ -2,13 +2,7 @@ import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Category
 import java.util.*
 
-/**
- * Meta (Derived)
- *
- *
- * Information about the Scripture Burrito metadata file.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
@@ -123,13 +117,7 @@ class DerivedMetaSchema: Meta() {
     }
 
 
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     *
-     */
+    
     data class MetaVersionSchema(private val value: String) {
 
         override fun toString(): String {
@@ -150,13 +138,7 @@ class DerivedMetaSchema: Meta() {
     }
 
 
-    /**
-     * Normalization
-     *
-     *
-     * Unicode normalization options. This applies to both ingredients and metadata.
-     *
-     */
+    
     enum class NormalizationSchema(private val value: String) {
         NFC("NFC"),
         NFD("NFD"),

@@ -3,104 +3,47 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Identification
- *
- *
- * Identification section.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "description", "abbreviation", "primary", "upstream"
 )
 class IdentificationSchema {
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var name: LocalizedText? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("description")
     @set:JsonProperty("description")
     @JsonProperty("description")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var description: LocalizedText? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("abbreviation")
     @set:JsonProperty("abbreviation")
     @JsonProperty("abbreviation")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var abbreviation: LocalizedText? = null
-    /**
-     * Contains the primary authority and identification information.
-     * (Required)
-     *
-     */
-    /**
-     * Contains the primary authority and identification information.
-     * (Required)
-     *
-     */
-    /**
-     * Contains the primary authority and identification information.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("primary")
     @set:JsonProperty("primary")
     @JsonProperty("primary")
     @JsonPropertyDescription("Contains the primary authority and identification information.")
     var primary: Primary? = null
-    /**
-     * Contains the upstream authority and identification information.
-     *
-     */
-    /**
-     * Contains the upstream authority and identification information.
-     *
-     */
-    /**
-     * Contains the upstream authority and identification information.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("upstream")
     @set:JsonProperty("upstream")
     @JsonProperty("upstream")

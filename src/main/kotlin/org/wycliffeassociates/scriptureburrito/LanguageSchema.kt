@@ -1,95 +1,38 @@
 import com.fasterxml.jackson.annotation.*
 
-/**
- * Language
- *
- *
- * Language section.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "tag", "name", "numberingSystem", "rod", "scriptDirection"
 )
 class LanguageSchema {
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
-    /**
-     * A valid IETF language tag as specified by BCP 47.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("tag")
     @set:JsonProperty("tag")
     @JsonProperty("tag")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var tag: String? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var name: LocalizedText? = null
-    /**
-     * Numbering System
-     *
-     *
-     * Numbering System
-     *
-     */
-    /**
-     * Numbering System
-     *
-     *
-     * Numbering System
-     *
-     */
-    /**
-     * Numbering System
-     *
-     *
-     * Numbering System
-     *
-     */
+    
+    
+    
     @get:JsonProperty("numberingSystem")
     @set:JsonProperty("numberingSystem")
     @JsonProperty("numberingSystem")
     @JsonPropertyDescription("Numbering System")
     var numberingSystem: NumberingSystemSchema? = null
-    /**
-     * A five-digit code from the Registry of Dialects.
-     *
-     */
-    /**
-     * A five-digit code from the Registry of Dialects.
-     *
-     */
-    /**
-     * A five-digit code from the Registry of Dialects.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("rod")
     @set:JsonProperty("rod")
     @JsonProperty("rod")
@@ -160,13 +103,7 @@ class LanguageSchema {
     }
 
 
-    /**
-     * Numbering System
-     *
-     *
-     * Numbering System
-     *
-     */
+    
     enum class NumberingSystemSchema(private val value: String) {
         ADLM("adlm"),
         AHOM("ahom"),

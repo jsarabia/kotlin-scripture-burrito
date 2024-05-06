@@ -3,67 +3,31 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-/**
- * Localized Name
- *
- *
- * Contains localized names for books, etc.
- *
- */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "short", "long", "abbr"
 )
 class LocalizedNameSchema {
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     * (Required)
-     *
-     */
+    
+    
+    
     @get:JsonProperty("short")
     @set:JsonProperty("short")
     @JsonProperty("short")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var short: LocalizedText? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("long")
     @set:JsonProperty("long")
     @JsonProperty("long")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var long: LocalizedText? = null
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
-    /**
-     * A textual string specified in one or multiple languages, indexed by IETF language tag.
-     *
-     */
+    
+    
+    
     @get:JsonProperty("abbr")
     @set:JsonProperty("abbr")
     @JsonProperty("abbr")
