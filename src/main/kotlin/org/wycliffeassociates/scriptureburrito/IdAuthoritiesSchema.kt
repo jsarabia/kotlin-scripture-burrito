@@ -40,7 +40,6 @@ class IdAuthoritiesSchema {
         if ((other is IdAuthoritiesSchema) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

@@ -8,21 +8,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "statement", "lang", "mimetype"
 )
 class ShortStatement {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("statement")
     @set:JsonProperty("statement")
     @JsonProperty("statement")

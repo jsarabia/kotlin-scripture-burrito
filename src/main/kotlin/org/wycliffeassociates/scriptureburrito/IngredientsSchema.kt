@@ -40,7 +40,6 @@ class IngredientsSchema {
         if ((other is IngredientsSchema) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

@@ -7,59 +7,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "idAuthority", "operation", "data"
 )
 class RecipeSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("idAuthority")
     @set:JsonProperty("idAuthority")
     @JsonProperty("idAuthority")
     var idAuthority: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("operation")
     @set:JsonProperty("operation")
     @JsonProperty("operation")
     var operation: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("data")
     @set:JsonProperty("data")
     @JsonProperty("data")

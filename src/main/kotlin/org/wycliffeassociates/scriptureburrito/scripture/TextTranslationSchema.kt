@@ -16,97 +16,37 @@ import scripture.TextTranslationSchema
     "name", "projectType", "translationType", "audience", "usfmVersion", "conventions"
 )
 class TextTranslationSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("projectType")
     @set:JsonProperty("projectType")
     @JsonProperty("projectType")
     var projectType: ProjectType? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("translationType")
     @set:JsonProperty("translationType")
     @JsonProperty("translationType")
     var translationType: TranslationType? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("audience")
     @set:JsonProperty("audience")
     @JsonProperty("audience")
     var audience: Audience? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("usfmVersion")
     @set:JsonProperty("usfmVersion")
     @JsonProperty("usfmVersion")
@@ -185,9 +125,7 @@ class TextTranslationSchema {
             return false
         }
         val rhs = other
-        return (((((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.projectType == rhs.projectType) || ((this.projectType != null) && (this.projectType == rhs.projectType)))) && ((this.conventions === rhs.conventions) || ((this.conventions != null) && conventions.equals(
-            rhs.conventions
-        )))) && ((this.audience == rhs.audience) || ((this.audience != null) && (this.audience == rhs.audience)))) && ((this.translationType == rhs.translationType) || ((this.translationType != null) && (this.translationType == rhs.translationType)))) && ((this.usfmVersion === rhs.usfmVersion) || ((this.usfmVersion != null) && (this.usfmVersion == rhs.usfmVersion))))
+        return (((((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.projectType == rhs.projectType) || ((this.projectType != null) && (this.projectType == rhs.projectType)))) && ((this.conventions === rhs.conventions) || ((this.conventions != null) && conventions == rhs.conventions))) && ((this.audience == rhs.audience) || ((this.audience != null) && (this.audience == rhs.audience)))) && ((this.translationType == rhs.translationType) || ((this.translationType != null) && (this.translationType == rhs.translationType)))) && ((this.usfmVersion === rhs.usfmVersion) || ((this.usfmVersion != null) && (this.usfmVersion == rhs.usfmVersion))))
     }
 
     enum class Audience(private val value: String) {
@@ -217,7 +155,7 @@ class TextTranslationSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): Audience {
+            fun fromValue(value: String): Audience {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant
@@ -254,7 +192,7 @@ class TextTranslationSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): ProjectType {
+            fun fromValue(value: String): ProjectType {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant
@@ -287,7 +225,7 @@ class TextTranslationSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): TranslationType {
+            fun fromValue(value: String): TranslationType {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

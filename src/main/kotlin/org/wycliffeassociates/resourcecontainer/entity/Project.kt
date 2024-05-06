@@ -3,7 +3,7 @@ package org.wycliffeassociates.resourcecontainer.entity
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
-import org.wycliffeassociates.resourcecontainer.Config
+import org.wycliffeassociates.container.accessors.Config
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)

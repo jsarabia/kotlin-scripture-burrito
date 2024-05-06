@@ -37,7 +37,6 @@ class Upstream {
         if ((other is Upstream) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

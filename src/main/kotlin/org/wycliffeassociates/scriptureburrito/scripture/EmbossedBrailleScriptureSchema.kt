@@ -28,82 +28,46 @@ class EmbossedBrailleScriptureSchema {
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("isContracted")
     @set:JsonProperty("isContracted")
     @JsonProperty("isContracted")
     var isContracted: Boolean? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("processor")
     private var processor: Processor? = null
 
     @JsonProperty("hyphenationDictionary")
     private var hyphenationDictionary: HyphenationDictionary? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("numberSign")
     private var numberSign: NumberSign? = null
 
     @JsonProperty("continuousPoetry")
     private var continuousPoetry: ContinuousPoetry? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("content")
     private var content: Content? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("page")
     private var page: Page? = null
 
     @JsonProperty("conventions")
     private var conventions: Conventions? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("processor")
     fun getProcessor(): Processor? {
         return processor
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("processor")
     fun setProcessor(processor: Processor?) {
         this.processor = processor
@@ -119,21 +83,13 @@ class EmbossedBrailleScriptureSchema {
         this.hyphenationDictionary = hyphenationDictionary
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("numberSign")
     fun getNumberSign(): NumberSign? {
         return numberSign
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("numberSign")
     fun setNumberSign(numberSign: NumberSign?) {
         this.numberSign = numberSign
@@ -149,41 +105,25 @@ class EmbossedBrailleScriptureSchema {
         this.continuousPoetry = continuousPoetry
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("content")
     fun getContent(): Content? {
         return content
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("content")
     fun setContent(content: Content?) {
         this.content = content
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("page")
     fun getPage(): Page? {
         return page
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("page")
     fun setPage(page: Page?) {
         this.page = page

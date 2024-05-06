@@ -7,21 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "md5", "sha3-256", "sha3-512"
 )
 class Checksum {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("md5")
     @set:JsonProperty("md5")
     @JsonProperty("md5")

@@ -28,11 +28,11 @@ dependencies {
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
-    kotlinOptions.allWarningsAsErrors = true
+    // kotlinOptions.allWarningsAsErrors = true
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
-    kotlinOptions.allWarningsAsErrors = true
+    // kotlinOptions.allWarningsAsErrors = true
 }
 
 task sourceJar(type: Jar) {

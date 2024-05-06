@@ -9,97 +9,37 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "charsPerLine", "linesPerPage", "defaultMarginWidth", "versoLastLineBlank", "carryLines"
 )
 class Page {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("charsPerLine")
     @set:JsonProperty("charsPerLine")
     @JsonProperty("charsPerLine")
     var charsPerLine: Double? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("linesPerPage")
     @set:JsonProperty("linesPerPage")
     @JsonProperty("linesPerPage")
     var linesPerPage: Double? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("defaultMarginWidth")
     @set:JsonProperty("defaultMarginWidth")
     @JsonProperty("defaultMarginWidth")
     var defaultMarginWidth: Double? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("versoLastLineBlank")
     @set:JsonProperty("versoLastLineBlank")
     @JsonProperty("versoLastLineBlank")
     var versoLastLineBlank: Boolean? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("carryLines")
     @set:JsonProperty("carryLines")
     @JsonProperty("carryLines")

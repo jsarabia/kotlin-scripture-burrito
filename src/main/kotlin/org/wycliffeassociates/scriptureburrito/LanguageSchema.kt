@@ -274,7 +274,7 @@ class LanguageSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): NumberingSystemSchema {
+            fun fromValue(value: String): NumberingSystemSchema {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant
@@ -305,7 +305,7 @@ class LanguageSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): ScriptDirection {
+            fun fromValue(value: String): ScriptDirection {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

@@ -19,71 +19,35 @@ import scripture.SignLanguageVideoTranslationSchema
     "name", "contentByChapter", "formats", "conventions"
 )
 class SignLanguageVideoTranslationSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("contentByChapter")
     @set:JsonProperty("contentByChapter")
     @JsonProperty("contentByChapter")
     var contentByChapter: Boolean? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("formats")
     private var formats: Formats? = null
 
     @JsonProperty("conventions")
     private var conventions: Conventions? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("formats")
     fun getFormats(): Formats? {
         return formats
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("formats")
     fun setFormats(formats: Formats?) {
         this.formats = formats

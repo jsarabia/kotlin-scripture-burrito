@@ -1,16 +1,12 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
-enum class Performance(private val value: String) {
-    SINGLE_VOICE("singleVoice"),
-    MULTIPLE_VOICE("multipleVoice"),
-    READING("reading"),
-    DRAMA("drama"),
-    WITH_MUSIC("withMusic"),
-    WITH_EFFECTS("withEffects"),
-    WITH_HEADINGS("withHeadings");
+public enum class Category(private val value: String) {
+    SOURCE("source"),
+    DERIVED("derived"),
+    TEMPLATE("template");
 
     override fun toString(): String {
         return this.value
@@ -22,7 +18,7 @@ enum class Performance(private val value: String) {
     }
 
     companion object {
-        private val CONSTANTS: MutableMap<String, Performance> = HashMap()
+        private val CONSTANTS: MutableMap<String, Category> = HashMap()
 
         init {
             for (c in values()) {
@@ -31,7 +27,7 @@ enum class Performance(private val value: String) {
         }
 
         @JsonCreator
-        fun fromValue(value: String): Performance {
+        fun fromValue(value: String): Category {
             val constant = CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant

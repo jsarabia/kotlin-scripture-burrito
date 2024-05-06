@@ -12,40 +12,16 @@ import com.fasterxml.jackson.annotation.*
     "relationType", "flavor", "id", "revision", "variant"
 )
 class RelationshipSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("relationType")
     @set:JsonProperty("relationType")
     @JsonProperty("relationType")
     var relationType: RelationType? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("flavor")
     @set:JsonProperty("flavor")
     @JsonProperty("flavor")
@@ -177,7 +153,7 @@ class RelationshipSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): RelationType {
+            fun fromValue(value: String): RelationType {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

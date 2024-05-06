@@ -9,68 +9,32 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "name", "version", "table"
 )
 class Processor {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("version")
     @set:JsonProperty("version")
     @JsonProperty("version")
     var version: String? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("table")
     private var table: Table? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("table")
     fun getTable(): Table? {
         return table
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("table")
     fun setTable(table: Table?) {
         this.table = table
@@ -121,8 +85,6 @@ class Processor {
             return false
         }
         val rhs = other
-        return ((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.version === rhs.version) || ((this.version != null) && (this.version == rhs.version)))) && ((this.table === rhs.table) || ((this.table != null) && table.equals(
-            rhs.table
-        ))))
+        return ((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.version === rhs.version) || ((this.version != null) && (this.version == rhs.version)))) && ((this.table === rhs.table) || ((this.table != null) && table == rhs.table)))
     }
 }

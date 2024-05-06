@@ -1,18 +1,20 @@
-package org.wycliffeassociates.container.accessors
+package org.wycliffeassociates.resourcecontainer
 
+import Meta
+import MetadataDeserializer
+import MetadataSchema
 import com.fasterxml.jackson.annotation.JsonInclude.Include
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.apache.tika.Tika
 import org.apache.tika.mime.MediaType
-import org.wycliffeassociates.resourcecontainer.Resource
-import org.wycliffeassociates.resourcecontainer.BurritoContainer
-import org.wycliffeassociates.resourcecontainer.Semver
+import org.wycliffeassociates.container.accessors.DirectoryAccessor
+import org.wycliffeassociates.container.accessors.IContainerAccessor
+import org.wycliffeassociates.container.accessors.ZipAccessor
 import org.wycliffeassociates.resourcecontainer.entity.Content
-import org.wycliffeassociates.resourcecontainer.entity.Manifest
-import org.wycliffeassociates.resourcecontainer.entity.MediaManifest
 import org.wycliffeassociates.resourcecontainer.entity.Project
 import org.wycliffeassociates.resourcecontainer.errors.OutdatedRCException
 import org.wycliffeassociates.resourcecontainer.errors.RCException
@@ -23,26 +25,15 @@ import java.io.OutputStream
 import java.io.Reader
 
 
-private const val MEDIA_FILENAME = "media.yaml"
-private const val MANIFEST_FILENAME = "manifest.yaml"
-private const val CONFIG_FILENAME = "config.yaml"
-
-interface Config {
-    fun read(reader: Reader): Config
-    fun write(writer: OutputStream)
-}
+const val MANIFEST_FILENAME = "metadata.json"
 
 /**
  *  This is an object that holds resource until it is closed. It is strongly advised to
  *  use within a disposable use() block or manually invoke the close() method.
  */
-class Container private constructor(
-    val file: File,
-    var config: Config? = null
-) : AutoCloseable {
+class BurritoContainer internal constructor(val file: File) : AutoCloseable {
 
-    lateinit var manifest: Manifest
-    var media: MediaManifest? = null
+    lateinit var manifest: Meta
 
     val accessor: IContainerAccessor = when {
         // file may not exist at creation of a rc with .zip suffix in file path
@@ -55,39 +46,30 @@ class Container private constructor(
         return MediaType.parse(Tika().detect(file))
     }
 
-    private fun read(): Manifest {
+    internal fun read(): Meta {
         if (accessor.fileExists(MANIFEST_FILENAME)) {
-            val mapper = ObjectMapper(YAMLFactory())
-            mapper.registerModule(KotlinModule())
-            manifest = accessor.getReader(MANIFEST_FILENAME).use {
-                mapper.readValue(it, Manifest::class.java)
+            val mapper = ObjectMapper()
+            val module = SimpleModule()
+            module.addDeserializer(MetadataSchema::class.java, MetadataDeserializer())
+            mapper.registerModules(
+                KotlinModule(),
+                module)
+            val schema = accessor.getReader(MANIFEST_FILENAME).use {
+                mapper.readValue(it, MetadataSchema::class.java)
             }
-            config?.let {
-                if (accessor.fileExists(CONFIG_FILENAME)) {
-                    this.config = it.read(accessor.getReader(CONFIG_FILENAME))
-                }
-            }
-            if (accessor.fileExists(MEDIA_FILENAME)) {
-                this.media = accessor.getReader(MEDIA_FILENAME).use {
-                    mapper.readValue(it, MediaManifest::class.java)
-                }
-            }
-            return manifest
+            return schema.meta!!
         } else {
-            throw IOException("Missing manifest.yaml")
+            throw IOException("Missing metadata.json")
         }
     }
 
     fun write() {
         writeManifest()
-        for (p in manifest.projects) {
-            if (p.path.isNotEmpty()) {
-                //writeTableOfContents(p)
-            }
-        }
-        media?.let {
-            writeMedia()
-        }
+//        for (p in manifest.projects) {
+//            if (p.path.isNotEmpty()) {
+//                //writeTableOfContents(p)
+//            }
+//        }
     }
 
     fun writeManifest() {
@@ -96,36 +78,11 @@ class Container private constructor(
     }
 
     private fun writeManifest(writer: OutputStream) {
-        val factory = YAMLFactory()
-        factory.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET)
-        val mapper = ObjectMapper(factory)
+        val mapper = ObjectMapper()
         mapper.registerModule(KotlinModule())
         mapper.setSerializationInclusion(Include.NON_NULL)
         mapper.writeValue(writer, manifest)
         writer.flush()
-    }
-
-    fun writeMedia() {
-        accessor.initWrite()
-        accessor.write(MEDIA_FILENAME) { writeMedia(it) }
-    }
-
-    private fun writeMedia(writer: OutputStream) {
-        val factory = YAMLFactory()
-        factory.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET)
-        val mapper = ObjectMapper(factory)
-        mapper.registerModule(KotlinModule())
-        mapper.setSerializationInclusion(Include.NON_NULL)
-        mapper.writeValue(writer, media)
-        writer.flush()
-    }
-
-    fun writeConfig() {
-        config?.let { config ->
-            if (accessor.fileExists(CONFIG_FILENAME)) {
-                accessor.write(CONFIG_FILENAME) { config.write(it) }
-            }
-        }
     }
 
     /**
@@ -174,46 +131,38 @@ class Container private constructor(
         accessor.write(map)
     }
 
-    fun resource() = Resource(
-        manifest.dublinCore.identifier,
-        manifest.dublinCore.title,
-        manifest.dublinCore.type,
-        manifest.checking.checkingLevel,
-        manifest.dublinCore.version
-    )
-
     fun project(identifier: String? = null): Project? {
-        if (manifest.projects.isEmpty()) {
-            return null
-        }
-
-        if (!identifier.isNullOrEmpty()) {
-            for (p in manifest.projects) {
-                if (p.identifier == identifier) {
-                    return p
-                }
-            }
-        } else if (manifest.projects.size == 1) {
-            return manifest.projects[0]
-        } else {
-            throw RCException("Multiple projects found. Specify the project identifier.")
-        }
+//        if (manifest.projects.isEmpty()) {
+//            return null
+//        }
+//
+//        if (!identifier.isNullOrEmpty()) {
+//            for (p in manifest.projects) {
+//                if (p.identifier == identifier) {
+//                    return p
+//                }
+//            }
+//        } else if (manifest.projects.size == 1) {
+//            return manifest.projects[0]
+//        } else {
+//            throw RCException("Multiple projects found. Specify the project identifier.")
+//        }
 
         return null
     }
-
-    fun projectIds(): List<String> = manifest.projects.map(Project::identifier)
-
-    fun projectCount(): Int = manifest.projects.size
-
-    fun conformsTo(): String = manifest.dublinCore.conformsTo.replace(Regex("^rc"), "")
+//
+//    fun projectIds(): List<String> = manifest.projects.map(Project::identifier)
+//
+//    fun projectCount(): Int = manifest.projects.size
+//
+//    fun conformsTo(): String = manifest.dublinCore.conformsTo.replace(Regex("^rc"), "")
 
     /**
      * Convenience method to get the type of the resource container.
      *
      * @return the RC type
      */
-    fun type(): String = this.manifest.dublinCore.type
+    fun type(): String = this.manifest.category.toString()
 
     companion object {
 
@@ -221,9 +170,9 @@ class Container private constructor(
 
         fun create(file: File, init: BurritoContainer.() -> Unit): BurritoContainer {
             val rc = BurritoContainer(file)
-            rc.init()
+//            rc.init()
 //            if (rc.conformsTo().isEmpty()) {
-//                // rc.manifest.dublinCore.conformsTo = conformsTo
+//                rc.manifest.dublinCore.conformsTo = conformsTo
 //            }
             return rc
         }
@@ -239,7 +188,7 @@ class Container private constructor(
 //                if (Semver.lt(rc.conformsTo(), conformsTo)) {
 //                    throw OutdatedRCException("Found " + rc.conformsTo() + " but expected " + conformsTo)
 //                }
-//            }
+           // }
 
             return rc
         }
@@ -249,3 +198,11 @@ class Container private constructor(
         accessor.close()
     }
 }
+
+data class Resource(
+    val slug: String,
+    val title: String,
+    val type: String,
+    val checkingLevel: String,
+    val version: String
+)

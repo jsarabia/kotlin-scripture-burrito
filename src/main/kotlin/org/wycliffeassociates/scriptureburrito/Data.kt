@@ -30,10 +30,9 @@ class Data {
         if (other === this) {
             return true
         }
-        if ((other is Data) == false) {
+        if (other !is Data) {
             return false
         }
-        val rhs = other
         return true
     }
 }

@@ -15,21 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "code", "name"
 )
 class TargetAreaSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("code")
     @set:JsonProperty("code")
     @JsonProperty("code")

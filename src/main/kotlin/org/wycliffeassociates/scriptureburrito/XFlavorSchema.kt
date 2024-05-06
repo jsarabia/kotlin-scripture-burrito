@@ -14,21 +14,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "name"
 )
 class XFlavorSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")

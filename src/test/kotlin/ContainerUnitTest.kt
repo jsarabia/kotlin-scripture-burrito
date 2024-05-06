@@ -8,7 +8,6 @@ import org.wycliffeassociates.resourcecontainer.entity.dublincore
 import org.wycliffeassociates.resourcecontainer.errors.OutdatedRCException
 import org.wycliffeassociates.resourcecontainer.errors.UnsupportedRCException
 import java.io.File
-import java.io.IOException
 
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
@@ -22,7 +21,7 @@ class ContainerUnitTest {
         val rcFile = File(sourceRC).copyTo(createTempFile(suffix = ".orature"), overwrite = true)
         rcFile.deleteOnExit()
 
-        ResourceContainer.load(rcFile).use {
+        BurritoContainer.load(rcFile).use {
             assertNotNull(it)
         }
     }
@@ -32,7 +31,7 @@ class ContainerUnitTest {
         val resource = classLoader.getResource(filename)
         val containerDir = File(resource!!.toURI().path)
 
-        val container = ResourceContainer.load(containerDir)
+        val container = BurritoContainer.load(containerDir)
 
         assertNotNull(container)
     }
@@ -89,7 +88,7 @@ class ContainerUnitTest {
             val containerDir = File(resource!!.toURI().path)
 
             try {
-                val container = ResourceContainer.load(containerDir)
+                val container = BurritoContainer.load(containerDir)
                 assertNull(container)
             } catch (e: Exception) {
                 assertEquals("Missing manifest.yaml", e.message)
@@ -103,7 +102,7 @@ class ContainerUnitTest {
     fun loadMissingRCWhenNotInStrictMode() {
         val containerDir = File("missing_rc")
 
-        val container = ResourceContainer.load(containerDir, false)
+        val container = BurritoContainer.load(containerDir, false)
         assertNotNull(container)
     }
 
@@ -120,7 +119,7 @@ class ContainerUnitTest {
             val resource = classLoader.getResource(it)
             val containerDir = File(resource!!.toURI().path)
 
-            val container = ResourceContainer.load(containerDir)
+            val container = BurritoContainer.load(containerDir)
 
             assertNotNull(container)
         }
@@ -139,7 +138,7 @@ class ContainerUnitTest {
             val resource = classLoader.getResource(it)
             val containerFile = File(resource!!.toURI().path)
 
-            val rc = ResourceContainer.load(containerFile)
+            val rc = BurritoContainer.load(containerFile)
 
             assertNotNull(rc)
             assertEquals("book", rc.type())
@@ -162,7 +161,7 @@ class ContainerUnitTest {
             assertEquals("testType", rc.type())
 
             rc.writeManifest()
-            val loaded = ResourceContainer.load(containerFile, strict = false)
+            val loaded = BurritoContainer.load(containerFile, strict = false)
             assertNotNull(loaded)
             assertEquals("testType", loaded.type())
         }
@@ -180,7 +179,7 @@ class ContainerUnitTest {
             val temp = TemporaryFolder().apply { create() }.root
             val containerFile = File(temp, it)
 
-            ResourceContainer.create(containerFile) {
+            BurritoContainer.create(containerFile) {
                 manifest = org.wycliffeassociates.resourcecontainer.entity.manifest {
                     dublinCore = dublincore {
                         type = "book"
@@ -199,9 +198,9 @@ class ContainerUnitTest {
                 assertEquals("book", rc.type())
 
                 rc.write()
-                val loaded = ResourceContainer.load(containerFile)
+                val loaded = BurritoContainer.load(containerFile)
                 assertNotNull(loaded)
-                assertEquals(ResourceContainer.conformsTo, loaded.conformsTo())
+                assertEquals(BurritoContainer.conformsTo, loaded.conformsTo())
                 assertEquals("book", loaded.type())
             }
         }
@@ -221,10 +220,10 @@ class ContainerUnitTest {
             val containerDir = File(resource!!.toURI().path)
 
             try {
-                val container = ResourceContainer.load(containerDir)
+                val container = BurritoContainer.load(containerDir)
                 assertNull(container)
             } catch (e: OutdatedRCException) {
-                assertEquals("Found 0.1 but expected " + ResourceContainer.conformsTo, e.message)
+                assertEquals("Found 0.1 but expected " + BurritoContainer.conformsTo, e.message)
             }
         }
     }
@@ -243,10 +242,10 @@ class ContainerUnitTest {
             val containerDir = File(resource!!.toURI().path)
 
             try {
-                val container = ResourceContainer.load(containerDir)
+                val container = BurritoContainer.load(containerDir)
                 assertNull(container)
             } catch (e: UnsupportedRCException) {
-                assertEquals("Found 9999990.1 but expected " + ResourceContainer.conformsTo, e.message)
+                assertEquals("Found 9999990.1 but expected " + BurritoContainer.conformsTo, e.message)
             }
         }
     }

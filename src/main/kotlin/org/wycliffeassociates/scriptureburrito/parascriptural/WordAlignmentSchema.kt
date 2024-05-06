@@ -19,115 +19,55 @@ import parascriptural.WordAlignmentSchema
     "name", "autoAlignerVersion", "stopWords", "stemmer", "manualAlignment"
 )
 class WordAlignmentSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: Any? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("autoAlignerVersion")
     @set:JsonProperty("autoAlignerVersion")
     @JsonProperty("autoAlignerVersion")
     var autoAlignerVersion: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("stopWords")
     @set:JsonProperty("stopWords")
     @JsonProperty("stopWords")
     var stopWords: Boolean? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("stemmer")
     private var stemmer: Stemmer? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("manualAlignment")
     private var manualAlignment: ManualAlignment? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("stemmer")
     fun getStemmer(): Stemmer? {
         return stemmer
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("stemmer")
     fun setStemmer(stemmer: Stemmer?) {
         this.stemmer = stemmer
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("manualAlignment")
     fun getManualAlignment(): ManualAlignment? {
         return manualAlignment
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("manualAlignment")
     fun setManualAlignment(manualAlignment: ManualAlignment?) {
         this.manualAlignment = manualAlignment
@@ -188,10 +128,6 @@ class WordAlignmentSchema {
             return false
         }
         val rhs = other
-        return ((((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.stemmer === rhs.stemmer) || ((this.stemmer != null) && stemmer.equals(
-            rhs.stemmer
-        )))) && ((this.stopWords === rhs.stopWords) || ((this.stopWords != null) && (this.stopWords == rhs.stopWords)))) && ((this.autoAlignerVersion === rhs.autoAlignerVersion) || ((this.autoAlignerVersion != null) && (this.autoAlignerVersion == rhs.autoAlignerVersion)))) && ((this.manualAlignment === rhs.manualAlignment) || ((this.manualAlignment != null) && manualAlignment.equals(
-            rhs.manualAlignment
-        ))))
+        return ((((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.stemmer === rhs.stemmer) || ((this.stemmer != null) && stemmer == rhs.stemmer))) && ((this.stopWords === rhs.stopWords) || ((this.stopWords != null) && (this.stopWords == rhs.stopWords)))) && ((this.autoAlignerVersion === rhs.autoAlignerVersion) || ((this.autoAlignerVersion != null) && (this.autoAlignerVersion == rhs.autoAlignerVersion)))) && ((this.manualAlignment === rhs.manualAlignment) || ((this.manualAlignment != null) && manualAlignment == rhs.manualAlignment)))
     }
 }

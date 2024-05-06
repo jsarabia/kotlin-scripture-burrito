@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.annotation.*
+import org.wycliffeassociates.scriptureburrito.Category
 import java.util.*
 
 /**
@@ -12,12 +13,12 @@ import java.util.*
 @JsonPropertyOrder(
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
-class DerivedMetaSchema {
+class DerivedMetaSchema: Meta() {
 
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
-    var category: Any? = null
+    override var category: Category? = null
 
     @get:JsonProperty("dateCreated")
     @set:JsonProperty("dateCreated")
@@ -181,7 +182,7 @@ class DerivedMetaSchema {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): NormalizationSchema {
+            fun fromValue(value: String): NormalizationSchema {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

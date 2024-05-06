@@ -66,7 +66,7 @@ enum class Unm49Schema(private val value: String) {
         }
 
         @JsonCreator
-        fun fromValue(value: String?): Unm49Schema {
+        fun fromValue(value: String): Unm49Schema {
             val constant = CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant

@@ -28,135 +28,51 @@ import scripture.TypesetScriptureSchema
     "conventions"
 )
 class TypesetScriptureSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     var name: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("contentType")
     @set:JsonProperty("contentType")
     @JsonProperty("contentType")
     var contentType: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("pod")
     @set:JsonProperty("pod")
     @JsonProperty("pod")
     var pod: Boolean? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("pageCount")
     @set:JsonProperty("pageCount")
     @JsonProperty("pageCount")
     var pageCount: Int? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("width")
     @set:JsonProperty("width")
     @JsonProperty("width")
     var width: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("height")
     @set:JsonProperty("height")
     @JsonProperty("height")
     var height: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("scale")
     @set:JsonProperty("scale")
     @JsonProperty("scale")
@@ -166,21 +82,9 @@ class TypesetScriptureSchema {
     @set:JsonProperty("orientation")
     @JsonProperty("orientation")
     var orientation: Orientation? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("colorSpace")
     @set:JsonProperty("colorSpace")
     @JsonProperty("colorSpace")

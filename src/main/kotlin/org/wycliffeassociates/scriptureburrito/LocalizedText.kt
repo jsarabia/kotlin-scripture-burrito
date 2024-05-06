@@ -37,7 +37,6 @@ class LocalizedText {
         if ((other is LocalizedText) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

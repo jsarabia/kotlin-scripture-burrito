@@ -37,7 +37,6 @@ class Primary {
         if ((other is Primary) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

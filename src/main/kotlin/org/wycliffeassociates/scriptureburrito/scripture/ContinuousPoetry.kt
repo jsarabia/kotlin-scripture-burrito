@@ -8,21 +8,9 @@ import scripture.ContinuousPoetry
     "lineIndicatorSpaced", "startIndicator", "lineIndicator", "endIndicator"
 )
 class ContinuousPoetry {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("lineIndicatorSpaced")
     @set:JsonProperty("lineIndicatorSpaced")
     @JsonProperty("lineIndicatorSpaced")
@@ -120,7 +108,7 @@ class ContinuousPoetry {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): LineIndicatorSpaced {
+            fun fromValue(value: String): LineIndicatorSpaced {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

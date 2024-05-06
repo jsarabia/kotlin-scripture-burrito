@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import org.wycliffeassociates.scriptureburrito.Category
 import java.util.*
 
 /**
@@ -17,78 +18,20 @@ import java.util.*
 @JsonPropertyOrder(
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
-class SourceMetaSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+class SourceMetaSchema: Meta() {
+
+
+
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
-    var category: Any? = null
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
-    /**
-     * Meta Date created
-     *
-     *
-     *
-     * (Required)
-     *
-     */
+    override var category: Category? = null
+
     @get:JsonProperty("dateCreated")
     @set:JsonProperty("dateCreated")
     @JsonProperty("dateCreated")
     var dateCreated: Date? = null
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
-    /**
-     * Meta Version
-     *
-     *
-     * Version of the Scripture Burrito specification this file follows.
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("version")
     @set:JsonProperty("version")
     @JsonProperty("version")

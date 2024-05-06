@@ -40,7 +40,6 @@ class LocalizedNamesSchema {
         if ((other is LocalizedNamesSchema) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

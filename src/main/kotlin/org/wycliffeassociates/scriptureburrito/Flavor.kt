@@ -30,10 +30,9 @@ class Flavor {
         if (other === this) {
             return true
         }
-        if ((other is Flavor) == false) {
+        if (other !is Flavor) {
             return false
         }
-        val rhs = other
         return true
     }
 }

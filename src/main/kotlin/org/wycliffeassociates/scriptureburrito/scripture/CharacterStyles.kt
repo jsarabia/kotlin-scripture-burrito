@@ -10,21 +10,7 @@ import scripture.CharacterStyles
     "callerSymbol"
 )
 class CharacterStyles {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @get:JsonProperty("callerSymbol")
     @set:JsonProperty("callerSymbol")
     @JsonProperty("callerSymbol")

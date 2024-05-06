@@ -1,14 +1,22 @@
 import com.fasterxml.jackson.annotation.*
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type
+import org.wycliffeassociates.scriptureburrito.Category
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "category"
 )
-class Meta {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "category")
+@JsonSubTypes(
+    Type(value = DerivedMetaSchema::class, name = "derived"),
+    Type(value = SourceMetaSchema::class, name = "source"),
+    Type(value = TemplateMetaSchema::class, name = "template")
+)
+abstract class Meta {
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
-    var category: Category? = null
+    open var category: Category? = null
 
     override fun toString(): String {
         val sb = StringBuilder()
@@ -48,35 +56,4 @@ class Meta {
         return ((this.category == rhs.category) || ((this.category != null) && (this.category == rhs.category)))
     }
 
-    enum class Category(private val value: String) {
-        SOURCE("source"),
-        DERIVED("derived"),
-        TEMPLATE("template");
-
-        override fun toString(): String {
-            return this.value
-        }
-
-        @JsonValue
-        fun value(): String {
-            return this.value
-        }
-
-        companion object {
-            private val CONSTANTS: MutableMap<String, Category> = HashMap()
-
-            init {
-                for (c in values()) {
-                    CONSTANTS[c.value] = c
-                }
-            }
-
-            @JsonCreator
-            fun fromValue(value: String): Category {
-                val constant = CONSTANTS[value]
-                requireNotNull(constant) { value }
-                return constant
-            }
-        }
-    }
 }

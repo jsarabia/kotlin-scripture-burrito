@@ -17,97 +17,37 @@ import scripture.Footnotes
     "crossReferences"
 )
 class Content {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("chapterNumberStyle")
     @set:JsonProperty("chapterNumberStyle")
     @JsonProperty("chapterNumberStyle")
     var chapterNumberStyle: ChapterNumberStyle? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("chapterHeadingsNumberFirst")
     @set:JsonProperty("chapterHeadingsNumberFirst")
     @JsonProperty("chapterHeadingsNumberFirst")
     var chapterHeadingsNumberFirst: Boolean? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("versedParagraphs")
     @set:JsonProperty("versedParagraphs")
     @JsonProperty("versedParagraphs")
     var versedParagraphs: Boolean? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("verseSeparator")
     @set:JsonProperty("verseSeparator")
     @JsonProperty("verseSeparator")
     var verseSeparator: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("includeIntros")
     @set:JsonProperty("includeIntros")
     @JsonProperty("includeIntros")
@@ -223,11 +163,7 @@ class Content {
             return false
         }
         val rhs = other
-        return (((((((((this.versedParagraphs === rhs.versedParagraphs) || ((this.versedParagraphs != null) && (this.versedParagraphs == rhs.versedParagraphs))) && ((this.chapterHeadingsNumberFirst === rhs.chapterHeadingsNumberFirst) || ((this.chapterHeadingsNumberFirst != null) && (this.chapterHeadingsNumberFirst == rhs.chapterHeadingsNumberFirst)))) && ((this.chapterNumberStyle == rhs.chapterNumberStyle) || ((this.chapterNumberStyle != null) && (this.chapterNumberStyle == rhs.chapterNumberStyle)))) && ((this.includeIntros === rhs.includeIntros) || ((this.includeIntros != null) && (this.includeIntros == rhs.includeIntros)))) && ((this.verseSeparator === rhs.verseSeparator) || ((this.verseSeparator != null) && (this.verseSeparator == rhs.verseSeparator)))) && ((this.characterStyles === rhs.characterStyles) || ((this.characterStyles != null) && characterStyles.equals(
-            rhs.characterStyles
-        )))) && ((this.footnotes === rhs.footnotes) || ((this.footnotes != null) && footnotes.equals(rhs.footnotes)))) && ((this.crossReferences === rhs.crossReferences) || ((this.crossReferences != null) && crossReferences.equals(
-            rhs.crossReferences
-        ))))
+        return (((((((((this.versedParagraphs === rhs.versedParagraphs) || ((this.versedParagraphs != null) && (this.versedParagraphs == rhs.versedParagraphs))) && ((this.chapterHeadingsNumberFirst === rhs.chapterHeadingsNumberFirst) || ((this.chapterHeadingsNumberFirst != null) && (this.chapterHeadingsNumberFirst == rhs.chapterHeadingsNumberFirst)))) && ((this.chapterNumberStyle == rhs.chapterNumberStyle) || ((this.chapterNumberStyle != null) && (this.chapterNumberStyle == rhs.chapterNumberStyle)))) && ((this.includeIntros === rhs.includeIntros) || ((this.includeIntros != null) && (this.includeIntros == rhs.includeIntros)))) && ((this.verseSeparator === rhs.verseSeparator) || ((this.verseSeparator != null) && (this.verseSeparator == rhs.verseSeparator)))) && ((this.characterStyles === rhs.characterStyles) || ((this.characterStyles != null) && characterStyles == rhs.characterStyles))) && ((this.footnotes === rhs.footnotes) || ((this.footnotes != null) && footnotes == rhs.footnotes))) && ((this.crossReferences === rhs.crossReferences) || ((this.crossReferences != null) && crossReferences == rhs.crossReferences)))
     }
 
     enum class ChapterNumberStyle(private val value: String) {
@@ -253,7 +189,7 @@ class Content {
             }
 
             @JsonCreator
-            fun fromValue(value: String?): ChapterNumberStyle {
+            fun fromValue(value: String): ChapterNumberStyle {
                 val constant = CONSTANTS[value]
                 requireNotNull(constant) { value }
                 return constant

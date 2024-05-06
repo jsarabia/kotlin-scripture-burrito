@@ -36,7 +36,6 @@ class Formats {
         if ((other is Formats) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

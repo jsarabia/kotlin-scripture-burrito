@@ -37,7 +37,6 @@ class LocalizedRichText {
         if ((other is LocalizedRichText) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

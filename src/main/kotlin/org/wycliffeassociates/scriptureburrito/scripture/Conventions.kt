@@ -36,7 +36,6 @@ class Conventions {
         if ((other is Conventions) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

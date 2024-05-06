@@ -41,7 +41,7 @@ class ContentAccessTest {
     fun testGetContentFromRC() {
         testCases.forEach { testCase ->
             val rcFile = getRCFile(testCase.path)
-            ResourceContainer.load(rcFile).use { rc ->
+            BurritoContainer.load(rcFile).use { rc ->
                 val content = rc.getProjectContent(
                     projectIdentifier = "sng", extension = testCase.extension
                 )
@@ -63,7 +63,7 @@ class ContentAccessTest {
     fun testStreamClosedZipRC() {
         val testCase = testCases.first { it.path.endsWith(".zip") }
         val rcFile = getRCFile(testCase.path)
-        val rc = ResourceContainer.load(rcFile)
+        val rc = BurritoContainer.load(rcFile)
         val content = rc.getProjectContent(extension = testCase.extension)
 
         assertNotNull(content)
@@ -79,7 +79,7 @@ class ContentAccessTest {
     fun testRepeatedAccess() {
         val testCase = testCases.first { it.path.endsWith(".zip") }
         val rcFile = getRCFile(testCase.path)
-        val rc = ResourceContainer.load(rcFile)
+        val rc = BurritoContainer.load(rcFile)
         var content = rc.getProjectContent(extension = testCase.extension)
 
         assertNotNull(content)
@@ -96,7 +96,7 @@ class ContentAccessTest {
     fun test_randomly_read_content_stream_from_zip_RC() {
         val testCase = testCases.first { it.path.endsWith(".zip") }
         val rcFile = getRCFile(testCase.path)
-        val rc = ResourceContainer.load(rcFile)
+        val rc = BurritoContainer.load(rcFile)
         var content = rc.getProjectContent(extension = testCase.extension)
 
         assertNotNull(content)

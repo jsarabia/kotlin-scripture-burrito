@@ -10,21 +10,9 @@ import scripture.Footnotes
     "callerSymbol"
 )
 class Footnotes {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("callerSymbol")
     @set:JsonProperty("callerSymbol")
     @JsonProperty("callerSymbol")

@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.annotation.*
+import org.wycliffeassociates.scriptureburrito.Format
 
 /**
  * Metadata (Derived)
@@ -25,22 +26,12 @@ import com.fasterxml.jackson.annotation.*
     "localizedNames",
     "recipe"
 )
-class DerivedMetadataSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+class DerivedMetadataSchema: MetadataSchema {
+
+    constructor(meta: DerivedMetaSchema) {
+        this.meta = meta
+    }
+
     @get:JsonProperty("format")
     @set:JsonProperty("format")
     @JsonProperty("format")
@@ -73,7 +64,11 @@ class DerivedMetadataSchema {
     @set:JsonProperty("meta")
     @JsonProperty("meta")
     @JsonPropertyDescription("Information about the Scripture Burrito metadata file.")
-    var meta: DerivedMetaSchema? = null
+    override var meta: Meta? = null
+
+    val metadata: DerivedMetaSchema?
+        get() = meta as DerivedMetaSchema?
+
     /**
      * idAuthorities
      *
@@ -305,35 +300,5 @@ class DerivedMetadataSchema {
         }
         val rhs = other
         return ((((((((((((((((this.copyright === rhs.copyright) || ((this.copyright != null) && (this.copyright == rhs.copyright))) && ((this.languages === rhs.languages) || ((this.languages != null) && (this.languages == rhs.languages)))) && ((this.localizedNames === rhs.localizedNames) || ((this.localizedNames != null) && (this.localizedNames == rhs.localizedNames)))) && ((this.format == rhs.format) || ((this.format != null) && (this.format == rhs.format)))) && ((this.recipe === rhs.recipe) || ((this.recipe != null) && (this.recipe == rhs.recipe)))) && ((this.agencies === rhs.agencies) || ((this.agencies != null) && (this.agencies == rhs.agencies)))) && ((this.type === rhs.type) || ((this.type != null) && (this.type == rhs.type)))) && ((this.targetAreas === rhs.targetAreas) || ((this.targetAreas != null) && (this.targetAreas == rhs.targetAreas)))) && ((this.relationships === rhs.relationships) || ((this.relationships != null) && (this.relationships == rhs.relationships)))) && ((this.identification === rhs.identification) || ((this.identification != null) && (this.identification == rhs.identification)))) && ((this.meta === rhs.meta) || ((this.meta != null) && (this.meta == rhs.meta)))) && ((this.ingredients === rhs.ingredients) || ((this.ingredients != null) && (this.ingredients == rhs.ingredients)))) && ((this.idAuthorities === rhs.idAuthorities) || ((this.idAuthorities != null) && (this.idAuthorities == rhs.idAuthorities)))) && ((this.confidential === rhs.confidential) || ((this.confidential != null) && (this.confidential == rhs.confidential)))) && ((this.promotion === rhs.promotion) || ((this.promotion != null) && (this.promotion == rhs.promotion))))
-    }
-
-    enum class Format(private val value: String) {
-        SCRIPTURE_BURRITO("scripture burrito");
-
-        override fun toString(): String {
-            return this.value
-        }
-
-        @JsonValue
-        fun value(): String {
-            return this.value
-        }
-
-        companion object {
-            private val CONSTANTS: MutableMap<String, Format> = HashMap()
-
-            init {
-                for (c in values()) {
-                    CONSTANTS[c.value] = c
-                }
-            }
-
-            @JsonCreator
-            fun fromValue(value: String?): Format {
-                val constant = CONSTANTS[value]
-                requireNotNull(constant) { value }
-                return constant
-            }
-        }
     }
 }

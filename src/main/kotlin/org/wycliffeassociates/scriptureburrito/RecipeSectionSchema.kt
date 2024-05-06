@@ -15,21 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "type", "nameId", "content"
 )
 class RecipeSectionSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("type")
     @set:JsonProperty("type")
     @JsonProperty("type")
@@ -54,21 +42,9 @@ class RecipeSectionSchema {
     @JsonProperty("nameId")
     @JsonPropertyDescription("Opaque system-specific identifier, without prefix.")
     var nameId: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("content")
     @set:JsonProperty("content")
     @JsonProperty("content")

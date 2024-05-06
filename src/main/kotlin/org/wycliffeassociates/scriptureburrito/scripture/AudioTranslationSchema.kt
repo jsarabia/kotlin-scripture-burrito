@@ -26,61 +26,31 @@ class AudioTranslationSchema {
     @JsonProperty("name")
     var name: Any? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("performance")
     @JsonDeserialize(`as` = LinkedHashSet::class)
     private var performance: Set<Performance>? = LinkedHashSet<Performance>()
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("formats")
     private var formats: Formats? = null
 
     @JsonProperty("conventions")
     private var conventions: Conventions? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("performance")
     fun getPerformance(): Set<Performance>? {
         return performance
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("performance")
     fun setPerformance(performance: Set<Performance>?) {
         this.performance = performance
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("formats")
     fun getFormats(): Formats? {
         return formats
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
     @JsonProperty("formats")
     fun setFormats(formats: Formats?) {
         this.formats = formats
@@ -146,10 +116,6 @@ class AudioTranslationSchema {
             return false
         }
         val rhs = other
-        return (((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.conventions === rhs.conventions) || ((this.conventions != null) && conventions.equals(
-            rhs.conventions
-        )))) && ((this.performance === rhs.performance) || ((this.performance != null) && (this.performance == rhs.performance)))) && ((this.formats === rhs.formats) || ((this.formats != null) && formats.equals(
-            rhs.formats
-        ))))
+        return (((((this.name === rhs.name) || ((this.name != null) && (this.name == rhs.name))) && ((this.conventions === rhs.conventions) || ((this.conventions != null) && conventions!! == rhs.conventions))) && ((this.performance === rhs.performance) || ((this.performance != null) && (this.performance == rhs.performance)))) && ((this.formats === rhs.formats) || ((this.formats != null) && formats!! == rhs.formats)))
     }
 }

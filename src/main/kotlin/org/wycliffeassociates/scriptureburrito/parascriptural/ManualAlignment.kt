@@ -10,49 +10,25 @@ import parascriptural.ManualAlignment
     "user", "references"
 )
 class ManualAlignment {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("user")
     @set:JsonProperty("user")
     @JsonProperty("user")
     var user: String? = null
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("references")
     private var references: List<Reference>? = ArrayList<Reference>()
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("references")
     fun getReferences(): List<Reference>? {
         return references
     }
 
-    /**
-     *
-     * (Required)
-     *
-     */
+
     @JsonProperty("references")
     fun setReferences(references: List<Reference>?) {
         this.references = references

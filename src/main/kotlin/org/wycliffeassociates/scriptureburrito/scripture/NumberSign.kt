@@ -10,40 +10,16 @@ import scripture.NumberSign
     "character", "useInMargin"
 )
 class NumberSign {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("character")
     @set:JsonProperty("character")
     @JsonProperty("character")
     var character: String? = null
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("useInMargin")
     @set:JsonProperty("useInMargin")
     @JsonProperty("useInMargin")

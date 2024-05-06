@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import org.wycliffeassociates.scriptureburrito.Category
 import java.util.*
 
 /**
@@ -17,26 +18,12 @@ import java.util.*
 @JsonPropertyOrder(
     "category", "templateName", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
-class TemplateMetaSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+class TemplateMetaSchema : Meta() {
+
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
-    var category: Any? = null
+    override var category: Category? = null
     /**
      * A textual string specified in one or multiple languages, indexed by IETF language tag.
      * (Required)

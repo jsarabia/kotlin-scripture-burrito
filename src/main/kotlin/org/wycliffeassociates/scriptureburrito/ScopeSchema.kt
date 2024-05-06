@@ -40,7 +40,6 @@ class ScopeSchema {
         if ((other is ScopeSchema) == false) {
             return false
         }
-        val rhs = other
         return true
     }
 }

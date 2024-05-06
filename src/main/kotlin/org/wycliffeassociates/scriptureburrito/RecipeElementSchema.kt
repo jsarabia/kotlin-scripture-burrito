@@ -15,21 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "type", "nameId", "ingredient"
 )
 class RecipeElementSchema {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("type")
     @set:JsonProperty("type")
     @JsonProperty("type")

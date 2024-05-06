@@ -29,7 +29,7 @@ enum class Role(private val value: String) {
         }
 
         @JsonCreator
-        fun fromValue(value: String?): Role {
+        fun fromValue(value: String): Role {
             val constant = CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant

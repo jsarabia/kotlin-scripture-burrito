@@ -9,21 +9,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "start", "end"
 )
 class Reference {
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
-    /**
-     *
-     * (Required)
-     *
-     */
+
+
+
     @get:JsonProperty("start")
     @set:JsonProperty("start")
     @JsonProperty("start")
