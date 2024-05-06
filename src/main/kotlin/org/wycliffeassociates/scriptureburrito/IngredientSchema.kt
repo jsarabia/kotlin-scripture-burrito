@@ -10,24 +10,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 )
 class IngredientSchema {
     
-    
-    
     @get:JsonProperty("size")
     @set:JsonProperty("size")
     @JsonProperty("size")
     @JsonPropertyDescription("The number of bytes that this ingredient takes up on disk.")
     var size: Int? = null
     
-    
-    
     @get:JsonProperty("lang")
     @set:JsonProperty("lang")
     @JsonProperty("lang")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var lang: String? = null
-    
-    
-    
+
     @get:JsonProperty("mimeType")
     @set:JsonProperty("mimeType")
     @JsonProperty("mimeType")
@@ -38,17 +32,13 @@ class IngredientSchema {
     @set:JsonProperty("checksum")
     @JsonProperty("checksum")
     var checksum: Checksum? = null
-    
-    
-    
+
     @get:JsonProperty("scope")
     @set:JsonProperty("scope")
     @JsonProperty("scope")
     @JsonPropertyDescription("Scope specification, used for the whole burrito and for specific ingredients. In both cases it describes the actual content, not future translation goals.")
     var scope: ScopeSchema? = null
-    
-    
-    
+
     @get:JsonProperty("role")
     @set:JsonProperty("role")
     @JsonProperty("role")

@@ -1,38 +1,37 @@
-import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonPropertyOrder
+package org.wycliffeassociates.scriptureburrito
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder
-class Flavor {
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonValue
+
+enum class Flavor(private val value: String) {
+    SCRIPTURE("scripture"),
+    GLOSS("gloss"),
+    PARASCRIPTURAL("parascriptural"),
+    PERIPHERAL("peripheral");
+
     override fun toString(): String {
-        val sb = StringBuilder()
-        sb.append(Flavor::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
-        }
-        return sb.toString()
+        return this.value
     }
 
-    override fun hashCode(): Int {
-        val result = 1
-        return result
+    @JsonValue
+    fun value(): String {
+        return this.value
     }
 
-    override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
+    companion object {
+        private val CONSTANTS: MutableMap<String, Flavor> = HashMap()
+
+        init {
+            for (c in values()) {
+                CONSTANTS[c.value] = c
+            }
         }
-        if (other !is Flavor) {
-            return false
+
+        @JsonCreator
+        fun fromValue(value: String): Flavor {
+            val constant = CONSTANTS[value]
+            requireNotNull(constant) { value }
+            return constant
         }
-        return true
     }
 }

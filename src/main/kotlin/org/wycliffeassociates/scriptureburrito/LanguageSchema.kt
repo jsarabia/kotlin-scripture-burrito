@@ -1,21 +1,18 @@
 import com.fasterxml.jackson.annotation.*
 
+class Languages: ArrayList<LanguageSchema>()
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "tag", "name", "numberingSystem", "rod", "scriptDirection"
 )
 class LanguageSchema {
-    
-    
-    
+
     @get:JsonProperty("tag")
     @set:JsonProperty("tag")
     @JsonProperty("tag")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
     var tag: String? = null
-    
-    
     
     @get:JsonProperty("name")
     @set:JsonProperty("name")
@@ -23,15 +20,11 @@ class LanguageSchema {
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var name: LocalizedText? = null
     
-    
-    
     @get:JsonProperty("numberingSystem")
     @set:JsonProperty("numberingSystem")
     @JsonProperty("numberingSystem")
     @JsonPropertyDescription("Numbering System")
     var numberingSystem: NumberingSystemSchema? = null
-    
-    
     
     @get:JsonProperty("rod")
     @set:JsonProperty("rod")

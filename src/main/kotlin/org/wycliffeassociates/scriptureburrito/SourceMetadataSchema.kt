@@ -21,8 +21,9 @@ import org.wycliffeassociates.scriptureburrito.Format
 )
 class SourceMetadataSchema: MetadataSchema {
 
-    constructor(meta: SourceMetaSchema) {
+    constructor(meta: SourceMetaSchema, typeSchema: TypeSchema) {
         this.meta = meta
+        this.type = typeSchema
     }
 
     @get:JsonProperty("format")
@@ -38,97 +39,74 @@ class SourceMetadataSchema: MetadataSchema {
 
     val metadata: SourceMetaSchema?
         get() = meta as SourceMetaSchema?
-    
-    
-    
+
     @get:JsonProperty("idAuthorities")
     @set:JsonProperty("idAuthorities")
     @JsonProperty("idAuthorities")
     @JsonPropertyDescription("Declares one or more identity authorities which may later be referred to using identifier prefixes.")
     var idAuthorities: IdAuthoritiesSchema? = null
-    
-    
-    
+
     @get:JsonProperty("identification")
     @set:JsonProperty("identification")
     @JsonProperty("identification")
     @JsonPropertyDescription("Identification section.")
     var identification: IdentificationSchema? = null
-    
-    
-    
+
+
     @get:JsonProperty("confidential")
     @set:JsonProperty("confidential")
     @JsonProperty("confidential")
     @JsonPropertyDescription("a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.")
     var confidential: Boolean? = null
-    
-    
-    
+
     @get:JsonProperty("type")
     @set:JsonProperty("type")
     @JsonProperty("type")
     @JsonPropertyDescription("Contains properties describing the burrito flavor type.")
-    var type: TypeSchema? = null
-    
-    
-    
+    override var type: TypeSchema? = null
+
     @get:JsonProperty("relationships")
     @set:JsonProperty("relationships")
     @JsonProperty("relationships")
     @JsonPropertyDescription("Describes a relationship to another burrito that may be obtained from an indicated server.")
     var relationships: List<RelationshipSchema>? = ArrayList()
-    
-    
-    
+
     @get:JsonProperty("languages")
     @set:JsonProperty("languages")
     @JsonProperty("languages")
     @JsonPropertyDescription("A list of all the languages of the contents of this burrito.")
-    var languages: List<LanguageSchema>? = ArrayList()
-    
-    
-    
+    var languages: Languages? = null
+
     @get:JsonProperty("targetAreas")
     @set:JsonProperty("targetAreas")
     @JsonProperty("targetAreas")
     @JsonPropertyDescription("A list of areas of the primary target audience of this burrito.")
     var targetAreas: List<TargetAreaSchema>? = ArrayList()
-    
-    
-    
+
     @get:JsonProperty("agencies")
     @set:JsonProperty("agencies")
     @JsonProperty("agencies")
     @JsonPropertyDescription("A list of agencies involved with the contents of the burrito or the work it is derived from.")
     var agencies: List<AgencySchema>? = ArrayList()
-    
-    
-    
+
     @get:JsonProperty("copyright")
     @set:JsonProperty("copyright")
     @JsonProperty("copyright")
     @JsonPropertyDescription("Describes the copyright holders and license terms of the burrito.")
     var copyright: CopyrightSchema? = null
-    
-    
-    
+
     @get:JsonProperty("ingredients")
     @set:JsonProperty("ingredients")
     @JsonProperty("ingredients")
     @JsonPropertyDescription("Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.")
     var ingredients: IngredientsSchema? = null
-    
-    
-    
+
     @get:JsonProperty("localizedNames")
     @set:JsonProperty("localizedNames")
     @JsonProperty("localizedNames")
     @JsonPropertyDescription("Contains localized names for books, etc.")
     var localizedNames: LocalizedNamesSchema? = null
-    
-    
-    
+
     @get:JsonProperty("progress")
     @set:JsonProperty("progress")
     @JsonProperty("progress")

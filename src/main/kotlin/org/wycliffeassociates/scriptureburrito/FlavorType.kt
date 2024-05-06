@@ -1,14 +1,33 @@
 import com.fasterxml.jackson.annotation.*
+import com.fasterxml.jackson.core.JsonParser
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.databind.*
+import com.fasterxml.jackson.module.kotlin.KotlinModule
+import org.wycliffeassociates.scriptureburrito.Flavor
+import scripture.AudioFlavorSchema
+import java.io.IOException
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
-    "name"
+    "name",
+    "flavor",
+    "currentScope"
 )
 class FlavorType {
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
-    var name: Name? = null
+    var name: Flavor? = null
+
+    @get:JsonProperty("flavor")
+    @set:JsonProperty("flavor")
+    @JsonProperty("flavor")
+    var flavor: FlavorSchema? = null
+
+    @get:JsonProperty("currentScope")
+    @set:JsonProperty("currentScope")
+    @JsonProperty("currentScope")
+    var currentScope: ScopeSchema? = null
 
     override fun toString(): String {
         val sb = StringBuilder()
@@ -48,36 +67,4 @@ class FlavorType {
         return ((this.name == rhs.name) || ((this.name != null) && (this.name == rhs.name)))
     }
 
-    enum class Name(private val value: String) {
-        SCRIPTURE("scripture"),
-        GLOSS("gloss"),
-        PARASCRIPTURAL("parascriptural"),
-        PERIPHERAL("peripheral");
-
-        override fun toString(): String {
-            return this.value
-        }
-
-        @JsonValue
-        fun value(): String {
-            return this.value
-        }
-
-        companion object {
-            private val CONSTANTS: MutableMap<String, Name> = HashMap()
-
-            init {
-                for (c in values()) {
-                    CONSTANTS[c.value] = c
-                }
-            }
-
-            @JsonCreator
-            fun fromValue(value: String): Name {
-                val constant = CONSTANTS[value]
-                requireNotNull(constant) { value }
-                return constant
-            }
-        }
-    }
 }

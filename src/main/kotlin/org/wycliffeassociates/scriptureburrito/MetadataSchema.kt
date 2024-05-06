@@ -5,10 +5,11 @@ import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.Module
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import java.io.IOException
-
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -27,6 +28,11 @@ abstract class MetadataSchema {
     @set:JsonProperty("meta")
     @JsonProperty("meta")
     open var meta: Meta? = null
+
+    @get:JsonProperty("type")
+    @set:JsonProperty("type")
+    @JsonProperty("type")
+    open var type: TypeSchema? = null
 
     override fun toString(): String {
         val sb = StringBuilder()
@@ -68,22 +74,40 @@ abstract class MetadataSchema {
 }
 
 class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
-    val mapper = ObjectMapper().registerModules(KotlinModule())
+
+    val mapper = ObjectMapper()
+        .registerModules(
+            KotlinModule(),
+            SimpleModule().addDeserializer(FlavorSchema::class.java, FlavorSchemaDeserializer())
+        )
 
     @Throws(IOException::class, JsonProcessingException::class)
     override fun deserialize(jp: JsonParser, ctx: DeserializationContext?): MetadataSchema {
         val node: JsonNode = jp.readValueAsTree() // Get the complete JSON structure
-
 
         // Extract the "format" field from the package object (assuming it's nested)
         val format = node["meta"]["category"].asText()
 
         // Leverage Jackson for deserializing the Package object
         val pkg: Meta = mapper.readValue(node["meta"].toString(), Meta::class.java)
+        val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
+
+        val languages = mapper.readValue(node["languages"].toString(), Languages::class.java)
+        val ingredients = mapper.readValue(node["ingredients"].toString(), IngredientsSchema::class.java)
 
         val metadata: MetadataSchema = when (format) {
-            "source" -> SourceMetadataSchema(pkg as SourceMetaSchema)
-            "derived" -> DerivedMetadataSchema(pkg as DerivedMetaSchema)
+            "source" -> {
+                val out = SourceMetadataSchema(pkg as SourceMetaSchema, type)
+                out.languages = languages
+                out.ingredients = ingredients
+                out
+            }
+            "derived" -> {
+                val out = DerivedMetadataSchema(pkg as DerivedMetaSchema, type)
+                out.languages = languages
+                out.ingredients = ingredients
+                out
+            }
             // "template" -> metadata = TemplateMetadataSchema(pkg as TemplateMetaSchema) as MetadataSchema
             else -> throw JsonMappingException("Unsupported format string: $format")
         }

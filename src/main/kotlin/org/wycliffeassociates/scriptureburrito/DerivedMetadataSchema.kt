@@ -22,8 +22,9 @@ import org.wycliffeassociates.scriptureburrito.Format
 )
 class DerivedMetadataSchema: MetadataSchema {
 
-    constructor(meta: DerivedMetaSchema) {
+    constructor(meta: DerivedMetaSchema, typeSchema: TypeSchema) {
         this.meta = meta
+        this.type = typeSchema
     }
 
     @get:JsonProperty("format")
@@ -41,9 +42,6 @@ class DerivedMetadataSchema: MetadataSchema {
 
     val metadata: DerivedMetaSchema?
         get() = meta as DerivedMetaSchema?
-
-    
-    
     
     @get:JsonProperty("idAuthorities")
     @set:JsonProperty("idAuthorities")
@@ -67,7 +65,7 @@ class DerivedMetadataSchema: MetadataSchema {
     @set:JsonProperty("type")
     @JsonProperty("type")
     @JsonPropertyDescription("Contains properties describing the burrito flavor type.")
-    var type: TypeSchema? = null
+    override var type: TypeSchema? = null
 
     @get:JsonProperty("relationships")
     @set:JsonProperty("relationships")
@@ -79,7 +77,7 @@ class DerivedMetadataSchema: MetadataSchema {
     @set:JsonProperty("languages")
     @JsonProperty("languages")
     @JsonPropertyDescription("A list of all the languages of the contents of this burrito.")
-    var languages: List<LanguageSchema>? = ArrayList()
+    var languages: Languages? = null
 
     @get:JsonProperty("targetAreas")
     @set:JsonProperty("targetAreas")

@@ -52,7 +52,7 @@ class TemplateMetadataSchema: MetadataSchema() {
     @set:JsonProperty("type")
     @JsonProperty("type")
     @JsonPropertyDescription("Contains properties describing the burrito flavor type.")
-    var type: TypeSchema? = null
+    override var type: TypeSchema? = null
 
     @get:JsonProperty("relationships")
     @set:JsonProperty("relationships")
@@ -64,7 +64,7 @@ class TemplateMetadataSchema: MetadataSchema() {
     @set:JsonProperty("languages")
     @JsonProperty("languages")
     @JsonPropertyDescription("A list of all the languages of the contents of this burrito.")
-    var languages: List<LanguageSchema>? = ArrayList()
+    var languages: Languages? = null
 
     @get:JsonProperty("targetAreas")
     @set:JsonProperty("targetAreas")

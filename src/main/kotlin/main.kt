@@ -9,6 +9,7 @@ fun main() {
     val mapper = ObjectMapper()
     val module = SimpleModule()
     module.addDeserializer(MetadataSchema::class.java, MetadataDeserializer())
+    module.addDeserializer(FlavorSchema::class.java, FlavorSchemaDeserializer())
     mapper.registerModules(
         KotlinModule(),
         module)
