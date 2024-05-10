@@ -1,6 +1,8 @@
 import com.fasterxml.jackson.annotation.*
 
 
+class Relationships: ArrayList<RelationshipSchema>()
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "relationType", "flavor", "id", "revision", "variant"

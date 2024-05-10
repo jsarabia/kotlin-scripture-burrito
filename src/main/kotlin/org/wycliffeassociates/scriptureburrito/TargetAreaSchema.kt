@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 
+class TargetAreas: ArrayList<TargetAreaSchema>()
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "code", "name"

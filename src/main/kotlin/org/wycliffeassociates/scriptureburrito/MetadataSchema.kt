@@ -5,10 +5,11 @@ import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.JsonDeserializer
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.Module
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.readValues
+import org.wycliffeassociates.scriptureburrito.Format
 import java.io.IOException
 
 
@@ -86,30 +87,53 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
         val node: JsonNode = jp.readValueAsTree() // Get the complete JSON structure
 
         // Extract the "format" field from the package object (assuming it's nested)
-        val format = node["meta"]["category"].asText()
+        val category = node["meta"]["category"].asText()
 
         // Leverage Jackson for deserializing the Package object
         val pkg: Meta = mapper.readValue(node["meta"].toString(), Meta::class.java)
         val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
 
+        val format = mapper.readValue(node["format"].toString(), Format::class.java)
+        val idAuthorities = mapper.readValue(node["idAuthorities"].toString(), IdAuthoritiesSchema::class.java)
+        val identification = mapper.readValue(node["identification"].toString(), IdentificationSchema::class.java)
+        val confidential = mapper.readValue(node["confidential"].toString(), Boolean::class.java)
+
+//        val targetAreas = mapper.readValue(node["targetAreas"].toString(), TargetAreas::class.java)
+//      val agencies = mapper.readValue(node["agencies"].toString(), Agencies::class.java)
+//        val relationships = mapper.readValue(node["relationships"].toString(), Relationships::class.java)
+        val copyright = mapper.readValue(node["copyright"].toString(), CopyrightSchema::class.java)
+
+
         val languages = mapper.readValue(node["languages"].toString(), Languages::class.java)
         val ingredients = mapper.readValue(node["ingredients"].toString(), IngredientsSchema::class.java)
+        val localizedNames = mapper.readValue(node["localizedNames"].toString(), LocalizedNamesSchema::class.java)
 
-        val metadata: MetadataSchema = when (format) {
+        val metadata: MetadataSchema = when (category) {
             "source" -> {
                 val out = SourceMetadataSchema(pkg as SourceMetaSchema, type)
                 out.languages = languages
                 out.ingredients = ingredients
+                out.localizedNames = localizedNames
+                out.format = format
+                out.idAuthorities = idAuthorities
+                out.identification = identification
+                out.confidential = confidential
                 out
             }
             "derived" -> {
                 val out = DerivedMetadataSchema(pkg as DerivedMetaSchema, type)
                 out.languages = languages
                 out.ingredients = ingredients
+                out.localizedNames = localizedNames
+                out.format = format
+                out.idAuthorities = idAuthorities
+                out.identification = identification
+                out.confidential = confidential
                 out
             }
             // "template" -> metadata = TemplateMetadataSchema(pkg as TemplateMetaSchema) as MetadataSchema
-            else -> throw JsonMappingException("Unsupported format string: $format")
+
+            else -> throw JsonMappingException("Unsupported format string: $category")
         }
         return metadata
     }

@@ -14,15 +14,15 @@ class LocalizedText {
     @get:JsonProperty("abbr")
     @set:JsonProperty("abbr")
     @JsonProperty("abbr")
-    var abbr: HashMap<String, String>? = null
+    var abbr: Map<String, String>? = null
 
     @get:JsonProperty("short")
     @set:JsonProperty("short")
     @JsonProperty("short")
-    var short: HashMap<String, String>? = null
+    var short: Map<String, String>? = null
 
     @get:JsonProperty("long")
     @set:JsonProperty("long")
     @JsonProperty("long")
-    var long: HashMap<String, String>? = null
+    var long: Map<String, String>? = null
 }

@@ -1,39 +1,24 @@
 import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-
+import java.util.HashMap
+class IdAuthoritiesSchema: HashMap<String, IdAuthority>()
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder
-class IdAuthoritiesSchema {
-    override fun toString(): String {
-        val sb = StringBuilder()
-        sb.append(IdAuthoritiesSchema::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
-        }
-        return sb.toString()
-    }
+@JsonPropertyOrder(
+    "id", "name"
+)
+class IdAuthority {
+    @get:JsonProperty("id")
+    @set:JsonProperty("id")
+    @JsonProperty("id")
+    var id: String? = null
 
-    override fun hashCode(): Int {
-        val result = 1
-        return result
-    }
 
-    override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
-        }
-        if ((other is IdAuthoritiesSchema) == false) {
-            return false
-        }
-        return true
-    }
+
+    @get:JsonProperty("name")
+    @set:JsonProperty("name")
+    @JsonProperty("name")
+    var name: Map<String, String>? = null
 }

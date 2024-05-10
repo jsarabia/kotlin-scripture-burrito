@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 
+class Agencies: ArrayList<AgencySchema>()
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "id", "name", "abbr", "url", "roles"

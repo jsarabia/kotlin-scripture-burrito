@@ -18,7 +18,7 @@ class LanguageSchema {
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var name: LocalizedText? = null
+    var name: Map<String, String>? = null
     
     @get:JsonProperty("numberingSystem")
     @set:JsonProperty("numberingSystem")
