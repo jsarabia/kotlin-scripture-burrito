@@ -1,39 +1,20 @@
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import com.fasterxml.jackson.databind.JsonNode
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder
-class Primary {
+/**
+ * Due to Primary being json objects of arbitrary schema, use a JsonNode
+ */
+class Primary: HashMap<String, JsonNode>() {
     override fun toString(): String {
         val sb = StringBuilder()
-        sb.append(Primary::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
+        sb.append("{")
+        keys.forEach {
+            sb.append("$it:${this[it].toString()}")
         }
+        sb.append("}")
         return sb.toString()
-    }
-
-    override fun hashCode(): Int {
-        val result = 1
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
-        }
-        if ((other is Primary) == false) {
-            return false
-        }
-        return true
     }
 }

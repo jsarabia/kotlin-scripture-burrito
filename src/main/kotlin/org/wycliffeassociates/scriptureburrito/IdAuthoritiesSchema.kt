@@ -15,8 +15,6 @@ class IdAuthority {
     @JsonProperty("id")
     var id: String? = null
 
-
-
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")

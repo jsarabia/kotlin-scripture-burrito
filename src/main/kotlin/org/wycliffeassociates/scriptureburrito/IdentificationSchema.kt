@@ -3,6 +3,9 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.util.JSONPObject
+import org.json.JSONObject
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -42,7 +45,7 @@ class IdentificationSchema {
     @JsonProperty("primary")
     @JsonPropertyDescription("Contains the primary authority and identification information.")
     @JsonIgnore
-    var primary: Any? = null
+    var primary: Primary = Primary()
     
     
     
@@ -51,4 +54,8 @@ class IdentificationSchema {
     @JsonProperty("upstream")
     @JsonPropertyDescription("Contains the upstream authority and identification information.")
     var upstream: Upstream? = null
+
+    override fun toString(): String {
+        return primary.toString()
+    }
 }
