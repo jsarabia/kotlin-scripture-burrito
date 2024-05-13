@@ -24,55 +24,83 @@ import java.io.IOException
     JsonSubTypes.Type(value = SourceMetadataSchema::class, name = "source"),
     JsonSubTypes.Type(value = TemplateMetadataSchema::class, name = "template")
 )
-abstract class MetadataSchema {
+abstract class MetadataSchema(
+    @get:JsonProperty("format")
+    @set:JsonProperty("format")
+    @JsonProperty("format")
+    var format: Format,
+
     @get:JsonProperty("meta")
     @set:JsonProperty("meta")
     @JsonProperty("meta")
-    open var meta: Meta? = null
+    open var meta: Meta,
+
+    @get:JsonProperty("copyright")
+    @set:JsonProperty("copyright")
+    @JsonProperty("copyright")
+    @JsonPropertyDescription("Describes the copyright holders and license terms of the burrito.")
+    var copyright: CopyrightSchema,
+
+    @get:JsonProperty("idAuthorities")
+    @set:JsonProperty("idAuthorities")
+    @JsonProperty("idAuthorities")
+    @JsonPropertyDescription("Declares one or more identity authorities which may later be referred to using identifier prefixes.")
+    var idAuthorities: IdAuthoritiesSchema? = null,
+
+    @get:JsonProperty("identification")
+    @set:JsonProperty("identification")
+    @JsonProperty("identification")
+    @JsonPropertyDescription("Identification section.")
+    var identification: IdentificationSchema? = null,
+
+    @get:JsonProperty("confidential")
+    @set:JsonProperty("confidential")
+    @JsonProperty("confidential")
+    @JsonPropertyDescription("a true value indicates that the project should not be publicly known and that the identity of project members needs to be kept confidential.")
+    var confidential: Boolean? = null,
 
     @get:JsonProperty("type")
     @set:JsonProperty("type")
     @JsonProperty("type")
-    open var type: TypeSchema? = null
+    @JsonPropertyDescription("Contains properties describing the burrito flavor type.")
+    open var type: TypeSchema? = null,
 
-    override fun toString(): String {
-        val sb = StringBuilder()
-        sb.append(MetadataSchema::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        sb.append("meta")
-        sb.append('=')
-        sb.append((if ((this.meta == null)) "<null>" else this.meta))
-        sb.append(',')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
-        }
-        return sb.toString()
-    }
+    @get:JsonProperty("relationships")
+    @set:JsonProperty("relationships")
+    @JsonProperty("relationships")
+    @JsonPropertyDescription("Describes a relationship to another burrito that may be obtained from an indicated server.")
+    var relationships: List<RelationshipSchema> = ArrayList(),
 
-    override fun hashCode(): Int {
-        var result = 1
-        result = ((result * 31) + (if ((this.meta == null)) 0 else meta.hashCode()))
-        return result
-    }
+    @get:JsonProperty("languages")
+    @set:JsonProperty("languages")
+    @JsonProperty("languages")
+    @JsonPropertyDescription("A list of all the languages of the contents of this burrito.")
+    var languages: Languages = Languages(),
 
-    override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
-        }
-        if (other !is MetadataSchema) {
-            return false
-        }
-        val rhs = other
-        return ((this.meta === rhs.meta) || ((this.meta != null) && (this.meta == rhs.meta)))
-    }
-}
+    @get:JsonProperty("targetAreas")
+    @set:JsonProperty("targetAreas")
+    @JsonProperty("targetAreas")
+    @JsonPropertyDescription("A list of areas of the primary target audience of this burrito.")
+    var targetAreas: List<TargetAreaSchema> = ArrayList(),
+
+    @get:JsonProperty("agencies")
+    @set:JsonProperty("agencies")
+    @JsonProperty("agencies")
+    @JsonPropertyDescription("A list of agencies involved with the contents of the burrito or the work it is derived from.")
+    var agencies: List<AgencySchema> = ArrayList(),
+
+    @get:JsonProperty("ingredients")
+    @set:JsonProperty("ingredients")
+    @JsonProperty("ingredients")
+    @JsonPropertyDescription("Describes the various files contained by the burrito, keyed by the canonical forward-slashed pathname of the file.")
+    var ingredients: IngredientsSchema = IngredientsSchema(),
+
+    @get:JsonProperty("localizedNames")
+    @set:JsonProperty("localizedNames")
+    @JsonProperty("localizedNames")
+    @JsonPropertyDescription("Contains localized names for books, etc.")
+    var localizedNames: LocalizedNamesSchema = LocalizedNamesSchema()
+)
 
 class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
 
@@ -110,28 +138,51 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
 
         val metadata: MetadataSchema = when (category) {
             "source" -> {
-                val out = SourceMetadataSchema(pkg as SourceMetaSchema, type)
-                out.languages = languages
-                out.ingredients = ingredients
-                out.localizedNames = localizedNames
-                out.format = format
-                out.idAuthorities = idAuthorities
-                out.identification = identification
-                out.confidential = confidential
+                val out = SourceMetadataSchema(
+                    format,
+                    pkg as SourceMetaSchema,
+                    idAuthorities,
+                    identification,
+                    confidential,
+                    type,
+                    copyright,
+                    languages = languages,
+                    ingredients = ingredients,
+                    localizedNames = localizedNames
+                )
                 out
             }
+
             "derived" -> {
-                val out = DerivedMetadataSchema(pkg as DerivedMetaSchema, type)
-                out.languages = languages
-                out.ingredients = ingredients
-                out.localizedNames = localizedNames
-                out.format = format
-                out.idAuthorities = idAuthorities
-                out.identification = identification
-                out.confidential = confidential
+                val out = DerivedMetadataSchema(
+                    format,
+                    pkg as DerivedMetaSchema,
+                    idAuthorities,
+                    identification,
+                    confidential,
+                    type,
+                    copyright,
+                    languages = languages,
+                    ingredients = ingredients,
+                    localizedNames = localizedNames
+                )
                 out
             }
-            // "template" -> metadata = TemplateMetadataSchema(pkg as TemplateMetaSchema) as MetadataSchema
+            "template" -> {
+                val out = TemplateMetadataSchema(
+                    format,
+                    pkg as TemplateMetaSchema,
+                    idAuthorities,
+                    identification,
+                    confidential,
+                    type,
+                    copyright,
+                    languages = languages,
+                    ingredients = ingredients,
+                    localizedNames = localizedNames
+                )
+                out
+            }
 
             else -> throw JsonMappingException("Unsupported format string: $category")
         }
