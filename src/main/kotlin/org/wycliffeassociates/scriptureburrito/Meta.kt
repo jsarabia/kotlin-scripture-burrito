@@ -1,6 +1,9 @@
 import com.fasterxml.jackson.annotation.*
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type
 import org.wycliffeassociates.scriptureburrito.Category
+import org.wycliffeassociates.scriptureburrito.MetaVersionSchema
+import org.wycliffeassociates.scriptureburrito.NormalizationSchema
+import java.util.*
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -12,11 +15,51 @@ import org.wycliffeassociates.scriptureburrito.Category
     Type(value = SourceMetaSchema::class, name = "source"),
     Type(value = TemplateMetaSchema::class, name = "template")
 )
-abstract class Meta {
+abstract class Meta(
+    @get:JsonProperty("dateCreated")
+    @set:JsonProperty("dateCreated")
+    @JsonProperty("dateCreated")
+    var dateCreated: Date,
+
+
+    @get:JsonProperty("version")
+    @set:JsonProperty("version")
+    @JsonProperty("version")
+    @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
+    var version: MetaVersionSchema,
+
+
+    @get:JsonProperty("generator")
+    @set:JsonProperty("generator")
+    @JsonProperty("generator")
+    var generator: SoftwareAndUserInfoSchema? = null,
+
+
+    @get:JsonProperty("defaultLocale")
+    @set:JsonProperty("defaultLocale")
+    @JsonProperty("defaultLocale")
+    @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
+    var defaultLocale: String,
+
+    @get:JsonProperty("normalization")
+    @set:JsonProperty("normalization")
+    @JsonProperty("normalization")
+    @JsonPropertyDescription("Unicode normalization options. This applies to both ingredients and metadata.")
+    var normalization: NormalizationSchema? = null,
+
+    @get:JsonProperty("comments")
+    @set:JsonProperty("comments")
+    @JsonProperty("comments")
+    @JsonPropertyDescription("Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.")
+    var comments: List<String> = ArrayList()
+) {
+
     @get:JsonProperty("category")
     @set:JsonProperty("category")
     @JsonProperty("category")
-    open var category: Category? = null
+    // Category gets read by Jackson in determining the subtype and won't get set via the constructor
+    // thus, we have to manually assign it as a lateinit
+    lateinit var category: Category
 
     override fun toString(): String {
         val sb = StringBuilder()

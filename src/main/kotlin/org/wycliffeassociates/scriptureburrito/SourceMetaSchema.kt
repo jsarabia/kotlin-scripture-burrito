@@ -1,5 +1,5 @@
-import DerivedMetaSchema.MetaVersionSchema
-import DerivedMetaSchema.NormalizationSchema
+import org.wycliffeassociates.scriptureburrito.MetaVersionSchema
+import org.wycliffeassociates.scriptureburrito.NormalizationSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
@@ -12,47 +12,32 @@ import java.util.*
 @JsonPropertyOrder(
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
-class SourceMetaSchema: Meta() {
-
-    @get:JsonProperty("category")
-    @set:JsonProperty("category")
-    @JsonProperty("category")
-    override var category: Category? = null
-
-    @get:JsonProperty("dateCreated")
-    @set:JsonProperty("dateCreated")
+class SourceMetaSchema(
     @JsonProperty("dateCreated")
-    var dateCreated: Date? = null
+    dateCreated: Date,
 
-    @get:JsonProperty("version")
-    @set:JsonProperty("version")
     @JsonProperty("version")
-    @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
-    var version: MetaVersionSchema? = null
+    version: MetaVersionSchema,
 
-    @get:JsonProperty("generator")
-    @set:JsonProperty("generator")
     @JsonProperty("generator")
-    var generator: SoftwareAndUserInfoSchema? = null
+    generator: SoftwareAndUserInfoSchema,
 
-    @get:JsonProperty("defaultLocale")
-    @set:JsonProperty("defaultLocale")
     @JsonProperty("defaultLocale")
-    @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
-    var defaultLocale: String? = null
+    defaultLocale: String,
 
-    @get:JsonProperty("normalization")
-    @set:JsonProperty("normalization")
     @JsonProperty("normalization")
-    @JsonPropertyDescription("Unicode normalization options. This applies to both ingredients and metadata.")
-    var normalization: NormalizationSchema? = null
-    
-    @get:JsonProperty("comments")
-    @set:JsonProperty("comments")
-    @JsonProperty("comments")
-    @JsonPropertyDescription("Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.")
-    var comments: List<String>? = ArrayList()
+    normalization: NormalizationSchema? = null,
 
+    @JsonProperty("comments")
+    comments: List<String> = ArrayList()
+) : Meta(
+    dateCreated,
+    version,
+    generator,
+    defaultLocale,
+    normalization,
+    comments
+) {
     override fun toString(): String {
         val sb = StringBuilder()
         sb.append(SourceMetaSchema::class.java.name).append('@').append(

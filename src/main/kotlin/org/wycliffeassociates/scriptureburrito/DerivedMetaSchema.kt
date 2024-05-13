@@ -1,5 +1,7 @@
 import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Category
+import org.wycliffeassociates.scriptureburrito.MetaVersionSchema
+import org.wycliffeassociates.scriptureburrito.NormalizationSchema
 import java.util.*
 
 
@@ -7,46 +9,33 @@ import java.util.*
 @JsonPropertyOrder(
     "category", "dateCreated", "version", "generator", "defaultLocale", "normalization", "comments"
 )
-class DerivedMetaSchema: Meta() {
-
-    @get:JsonProperty("category")
-    @set:JsonProperty("category")
-    @JsonProperty("category")
-    override var category: Category? = null
-
-    @get:JsonProperty("dateCreated")
-    @set:JsonProperty("dateCreated")
+class DerivedMetaSchema(
     @JsonProperty("dateCreated")
-    var dateCreated: Date? = null
+    dateCreated: Date,
 
-    @get:JsonProperty("version")
-    @set:JsonProperty("version")
     @JsonProperty("version")
-    @JsonPropertyDescription("Version of the Scripture Burrito specification this file follows.")
-    var version: MetaVersionSchema? = null
+    version: MetaVersionSchema,
 
-    @get:JsonProperty("generator")
-    @set:JsonProperty("generator")
     @JsonProperty("generator")
-    var generator: SoftwareAndUserInfoSchema? = null
+    generator: SoftwareAndUserInfoSchema? = null,
 
-    @get:JsonProperty("defaultLocale")
-    @set:JsonProperty("defaultLocale")
     @JsonProperty("defaultLocale")
-    @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
-    var defaultLocale: String? = null
+    defaultLocale: String,
 
-    @get:JsonProperty("normalization")
-    @set:JsonProperty("normalization")
     @JsonProperty("normalization")
-    @JsonPropertyDescription("Unicode normalization options. This applies to both ingredients and metadata.")
-    var normalization: NormalizationSchema? = null
+    normalization: NormalizationSchema? = null,
 
-    @get:JsonProperty("comments")
-    @set:JsonProperty("comments")
     @JsonProperty("comments")
-    @JsonPropertyDescription("Arbitrary text strings attached by users with no effect on the interpretation of the Scripture Burrito.")
-    var comments: List<String>? = ArrayList()
+    comments: List<String> = ArrayList()
+) : Meta(
+    dateCreated,
+    version,
+    generator,
+    defaultLocale,
+    normalization,
+    comments
+) {
+
 
     override fun toString(): String {
         val sb = StringBuilder()
@@ -117,58 +106,4 @@ class DerivedMetaSchema: Meta() {
     }
 
 
-    
-    data class MetaVersionSchema(private val value: String) {
-
-        override fun toString(): String {
-            return this.value
-        }
-
-        @JsonValue
-        fun value(): String {
-            return this.value
-        }
-
-        companion object {
-            @JsonCreator
-            fun fromValue(value: String): MetaVersionSchema {
-                return MetaVersionSchema(value)
-            }
-        }
-    }
-
-
-    
-    enum class NormalizationSchema(private val value: String) {
-        NFC("NFC"),
-        NFD("NFD"),
-        NFKC("NFKC"),
-        NFKD("NFKD");
-
-        override fun toString(): String {
-            return this.value
-        }
-
-        @JsonValue
-        fun value(): String {
-            return this.value
-        }
-
-        companion object {
-            private val CONSTANTS: MutableMap<String, NormalizationSchema> = HashMap()
-
-            init {
-                for (c in values()) {
-                    CONSTANTS[c.value] = c
-                }
-            }
-
-            @JsonCreator
-            fun fromValue(value: String): NormalizationSchema {
-                val constant = CONSTANTS[value]
-                requireNotNull(constant) { value }
-                return constant
-            }
-        }
-    }
 }

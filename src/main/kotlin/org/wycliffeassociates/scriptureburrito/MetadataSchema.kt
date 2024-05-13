@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.readValues
+import org.wycliffeassociates.scriptureburrito.Category
 import org.wycliffeassociates.scriptureburrito.Format
 import java.io.IOException
 
@@ -114,13 +114,14 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
     override fun deserialize(jp: JsonParser, ctx: DeserializationContext?): MetadataSchema {
         val node: JsonNode = jp.readValueAsTree() // Get the complete JSON structure
 
-        // Extract the "format" field from the package object (assuming it's nested)
         val category = node["meta"]["category"].asText()
 
-        // Leverage Jackson for deserializing the Package object
-        val pkg: Meta = mapper.readValue(node["meta"].toString(), Meta::class.java)
-        val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
+        val meta: Meta = mapper.readValue(node["meta"].toString(), Meta::class.java)
+        // Category gets read by Jackson in determining the subtype and won't get set via the constructor
+        // thus, we have to manually assign it as a lateinit
+        meta.category = mapper.readValue(node["meta"]["category"].toString(), Category::class.java)
 
+        val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
         val format = mapper.readValue(node["format"].toString(), Format::class.java)
         val idAuthorities = mapper.readValue(node["idAuthorities"].toString(), IdAuthoritiesSchema::class.java)
         val identification = mapper.readValue(node["identification"].toString(), IdentificationSchema::class.java)
@@ -140,7 +141,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
             "source" -> {
                 val out = SourceMetadataSchema(
                     format,
-                    pkg as SourceMetaSchema,
+                    meta as SourceMetaSchema,
                     idAuthorities,
                     identification,
                     confidential,
@@ -156,7 +157,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
             "derived" -> {
                 val out = DerivedMetadataSchema(
                     format,
-                    pkg as DerivedMetaSchema,
+                    meta as DerivedMetaSchema,
                     idAuthorities,
                     identification,
                     confidential,
@@ -171,7 +172,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
             "template" -> {
                 val out = TemplateMetadataSchema(
                     format,
-                    pkg as TemplateMetaSchema,
+                    meta as TemplateMetaSchema,
                     idAuthorities,
                     identification,
                     confidential,
