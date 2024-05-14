@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Format
 import javax.xml.transform.Source
@@ -22,7 +24,7 @@ import javax.xml.transform.Source
 )
 class SourceMetadataSchema(
     @JsonProperty("format")
-    format: Format,
+    format: org.wycliffeassociates.scriptureburrito.Format,
     @JsonProperty("meta")
     meta: SourceMetaSchema,
 
@@ -55,7 +57,7 @@ class SourceMetadataSchema(
 
     @JsonProperty("targetAreas")
     @JsonPropertyDescription("A list of areas of the primary target audience of this burrito.")
-    targetAreas: List<TargetAreaSchema> = ArrayList(),
+    targetAreas: List<org.wycliffeassociates.scriptureburrito.TargetAreaSchema> = ArrayList(),
 
     @JsonProperty("agencies")
     @JsonPropertyDescription("A list of agencies involved with the contents of the burrito or the work it is derived from.")

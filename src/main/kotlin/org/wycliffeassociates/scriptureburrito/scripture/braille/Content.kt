@@ -1,9 +1,8 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture.braille
 
 import com.fasterxml.jackson.annotation.*
-import scripture.CharacterStyles
-import scripture.CrossReferences
-import scripture.Footnotes
+import org.wycliffeassociates.scriptureburrito.scripture.CrossReferences
+import org.wycliffeassociates.scriptureburrito.scripture.Footnotes
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -17,8 +16,6 @@ import scripture.Footnotes
     "crossReferences"
 )
 class Content {
-
-
 
     @get:JsonProperty("chapterNumberStyle")
     @set:JsonProperty("chapterNumberStyle")

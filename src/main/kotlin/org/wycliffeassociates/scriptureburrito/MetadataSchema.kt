@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.*
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.core.JsonProcessingException
@@ -9,6 +11,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.wycliffeassociates.scriptureburrito.Category
+import org.wycliffeassociates.scriptureburrito.FlavorSchema
+import org.wycliffeassociates.scriptureburrito.FlavorSchemaDeserializer
 import org.wycliffeassociates.scriptureburrito.Format
 import java.io.IOException
 
@@ -28,7 +32,7 @@ abstract class MetadataSchema(
     @get:JsonProperty("format")
     @set:JsonProperty("format")
     @JsonProperty("format")
-    var format: Format,
+    var format: org.wycliffeassociates.scriptureburrito.Format,
 
     @get:JsonProperty("meta")
     @set:JsonProperty("meta")
@@ -81,7 +85,7 @@ abstract class MetadataSchema(
     @set:JsonProperty("targetAreas")
     @JsonProperty("targetAreas")
     @JsonPropertyDescription("A list of areas of the primary target audience of this burrito.")
-    var targetAreas: List<TargetAreaSchema> = ArrayList(),
+    var targetAreas: List<org.wycliffeassociates.scriptureburrito.TargetAreaSchema> = ArrayList(),
 
     @get:JsonProperty("agencies")
     @set:JsonProperty("agencies")
@@ -122,7 +126,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
         meta.category = mapper.readValue(node["meta"]["category"].toString(), Category::class.java)
 
         val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
-        val format = mapper.readValue(node["format"].toString(), Format::class.java)
+        val format = mapper.readValue(node["format"].toString(), org.wycliffeassociates.scriptureburrito.Format::class.java)
         val idAuthorities = mapper.readValue(node["idAuthorities"].toString(), IdAuthoritiesSchema::class.java)
         val identification = mapper.readValue(node["identification"].toString(), IdentificationSchema::class.java)
         val confidential = mapper.readValue(node["confidential"].toString(), Boolean::class.java)

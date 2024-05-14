@@ -1,4 +1,4 @@
-package org.wycliffeassociates.scriptureburrito
+package org.wycliffeassociates.scriptureburrito.scripture.audio
 
 import com.fasterxml.jackson.annotation.*
 
@@ -11,12 +11,13 @@ import com.fasterxml.jackson.annotation.*
     "samplingRate",
     "timingDir"
 )
-class AudioFormat {
+class AudioFormat(
     @get:JsonProperty("compression")
     @set:JsonProperty("compression")
     @JsonProperty("compression")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var compression: Compression? = null
+    var compression: Compression
+) {
 
     @get:JsonProperty("trackConfiguration")
     @set:JsonProperty("trackConfiguration")
@@ -47,70 +48,4 @@ class AudioFormat {
     @JsonProperty("timingDir")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
     var timingDir: String? = null
-}
-
-enum class Compression(private val value: String) {
-    MP3("mp3"),
-    WAV("wav"),
-    OGG("ogg");
-
-
-    override fun toString(): String {
-        return this.value
-    }
-
-    @JsonValue
-    fun value(): String {
-        return this.value
-    }
-
-    companion object {
-        private val CONSTANTS: MutableMap<String, Compression> = HashMap()
-
-        init {
-            for (c in values()) {
-                CONSTANTS[c.value] = c
-            }
-        }
-
-        @JsonCreator
-        fun fromValue(value: String): Compression {
-            val constant = CONSTANTS[value]
-            requireNotNull(constant) { value }
-            return constant
-        }
-    }
-}
-
-enum class TrackConfiguration(private val value: String) {
-    MONO("1/0 (Mono)"),
-    DUAL_MONO("Dual mono"),
-    STEREO("2/0 (Stereo)"),
-    SURROUND("5.1 Surround");
-
-    override fun toString(): String {
-        return this.value
-    }
-
-    @JsonValue
-    fun value(): String {
-        return this.value
-    }
-
-    companion object {
-        private val CONSTANTS: MutableMap<String, TrackConfiguration> = HashMap()
-
-        init {
-            for (c in values()) {
-                CONSTANTS[c.value] = c
-            }
-        }
-
-        @JsonCreator
-        fun fromValue(value: String): TrackConfiguration {
-            val constant = CONSTANTS[value]
-            requireNotNull(constant) { value }
-            return constant
-        }
-    }
 }

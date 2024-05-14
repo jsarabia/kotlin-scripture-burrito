@@ -7,7 +7,6 @@ import java.io.Reader
 interface IContainerAccessor: AutoCloseable {
     fun fileExists(filename: String): Boolean
 
-    
     fun list(path: String): List<String>
     fun getInputStream(filename: String): InputStream
     fun getInputStreams(path: String, extension: String): Map<String, InputStream>

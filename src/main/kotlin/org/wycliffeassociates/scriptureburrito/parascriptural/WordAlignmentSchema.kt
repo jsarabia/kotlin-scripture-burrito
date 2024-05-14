@@ -1,11 +1,8 @@
-package parascriptural
+package org.wycliffeassociates.scriptureburrito.parascriptural
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import parascriptural.ManualAlignment
-import parascriptural.Stemmer
-import parascriptural.WordAlignmentSchema
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

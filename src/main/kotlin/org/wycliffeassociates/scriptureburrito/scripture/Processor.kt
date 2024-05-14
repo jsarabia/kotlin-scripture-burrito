@@ -1,4 +1,4 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

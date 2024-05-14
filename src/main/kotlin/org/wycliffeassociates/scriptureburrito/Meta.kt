@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.*
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type
 import org.wycliffeassociates.scriptureburrito.Category

@@ -1,10 +1,12 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
 
-class TargetAreas: ArrayList<TargetAreaSchema>()
+class TargetAreas: ArrayList<org.wycliffeassociates.scriptureburrito.TargetAreaSchema>()
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -25,11 +27,11 @@ class TargetAreaSchema {
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var name: LocalizedText? = null
+    var name: org.wycliffeassociates.scriptureburrito.LocalizedText? = null
 
     override fun toString(): String {
         val sb = StringBuilder()
-        sb.append(TargetAreaSchema::class.java.name).append('@').append(
+        sb.append(org.wycliffeassociates.scriptureburrito.TargetAreaSchema::class.java.name).append('@').append(
             Integer.toHexString(
                 System.identityHashCode(
                     this
@@ -63,7 +65,7 @@ class TargetAreaSchema {
         if (other === this) {
             return true
         }
-        if ((other is TargetAreaSchema) == false) {
+        if ((other is org.wycliffeassociates.scriptureburrito.TargetAreaSchema) == false) {
             return false
         }
         val rhs = other

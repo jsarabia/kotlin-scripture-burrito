@@ -1,8 +1,7 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture.text
 
 import com.fasterxml.jackson.annotation.*
-import scripture.Conventions
-import scripture.TextTranslationSchema
+import org.wycliffeassociates.scriptureburrito.scripture.Conventions
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

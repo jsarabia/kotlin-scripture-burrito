@@ -1,7 +1,6 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture.braille
 
 import com.fasterxml.jackson.annotation.*
-import scripture.ContinuousPoetry
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(

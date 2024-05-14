@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
@@ -11,8 +13,6 @@ class Agencies: ArrayList<AgencySchema>()
     "id", "name", "abbr", "url", "roles"
 )
 class AgencySchema {
-    
-    
     
     @get:JsonProperty("id")
     @set:JsonProperty("id")

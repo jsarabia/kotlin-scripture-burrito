@@ -1,4 +1,4 @@
-package parascriptural
+package org.wycliffeassociates.scriptureburrito.parascriptural
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty

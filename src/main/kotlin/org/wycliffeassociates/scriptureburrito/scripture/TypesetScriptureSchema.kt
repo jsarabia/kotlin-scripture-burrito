@@ -1,10 +1,6 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture
 
 import com.fasterxml.jackson.annotation.*
-import scripture.Conventions
-import scripture.EdgeSpace
-import scripture.TypesetScriptureSchema
-
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
@@ -22,8 +18,6 @@ import scripture.TypesetScriptureSchema
     "conventions"
 )
 class TypesetScriptureSchema {
-
-
 
     @get:JsonProperty("name")
     @set:JsonProperty("name")

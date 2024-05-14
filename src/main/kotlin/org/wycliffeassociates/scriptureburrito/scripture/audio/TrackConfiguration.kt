@@ -1,16 +1,13 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture.audio
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
-enum class Performance(private val value: String) {
-    SINGLE_VOICE("singleVoice"),
-    MULTIPLE_VOICE("multipleVoice"),
-    READING("reading"),
-    DRAMA("drama"),
-    WITH_MUSIC("withMusic"),
-    WITH_EFFECTS("withEffects"),
-    WITH_HEADINGS("withHeadings");
+enum class TrackConfiguration(private val value: String) {
+    MONO("1/0 (Mono)"),
+    DUAL_MONO("Dual mono"),
+    STEREO("2/0 (Stereo)"),
+    SURROUND("5.1 Surround");
 
     override fun toString(): String {
         return this.value
@@ -22,7 +19,7 @@ enum class Performance(private val value: String) {
     }
 
     companion object {
-        private val CONSTANTS: MutableMap<String, Performance> = HashMap()
+        private val CONSTANTS: MutableMap<String, TrackConfiguration> = HashMap()
 
         init {
             for (c in values()) {
@@ -31,7 +28,7 @@ enum class Performance(private val value: String) {
         }
 
         @JsonCreator
-        fun fromValue(value: String): Performance {
+        fun fromValue(value: String): TrackConfiguration {
             val constant = CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant

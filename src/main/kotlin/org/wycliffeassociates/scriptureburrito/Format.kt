@@ -16,17 +16,17 @@ enum class Format(private val value: String) {
     }
 
     companion object {
-        private val CONSTANTS: MutableMap<String, Format> = HashMap()
+        private val CONSTANTS: MutableMap<String, org.wycliffeassociates.scriptureburrito.Format> = HashMap()
 
         init {
             for (c in values()) {
-                CONSTANTS[c.value] = c
+                org.wycliffeassociates.scriptureburrito.Format.Companion.CONSTANTS[c.value] = c
             }
         }
 
         @JsonCreator
-        fun fromValue(value: String): Format {
-            val constant = CONSTANTS[value]
+        fun fromValue(value: String): org.wycliffeassociates.scriptureburrito.Format {
+            val constant = org.wycliffeassociates.scriptureburrito.Format.Companion.CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant
         }

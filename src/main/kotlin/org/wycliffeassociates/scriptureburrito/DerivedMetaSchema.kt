@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.*
 import org.wycliffeassociates.scriptureburrito.Category
 import org.wycliffeassociates.scriptureburrito.MetaVersionSchema

@@ -1,11 +1,8 @@
+package org.wycliffeassociates.scriptureburrito
+
 import com.fasterxml.jackson.annotation.*
-import com.fasterxml.jackson.core.JsonParser
-import com.fasterxml.jackson.core.JsonProcessingException
-import com.fasterxml.jackson.databind.*
-import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.wycliffeassociates.scriptureburrito.Flavor
-import scripture.AudioFlavorSchema
-import java.io.IOException
+import org.wycliffeassociates.scriptureburrito.FlavorSchema
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(

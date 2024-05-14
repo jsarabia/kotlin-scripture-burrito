@@ -33,7 +33,7 @@ interface Config {
 }
 
 
-class Container private constructor(
+abstract class Container private constructor(
     val file: File,
     var config: Config? = null
 ) : AutoCloseable {

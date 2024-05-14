@@ -21,15 +21,15 @@ class BurritoProjectBuilder {
     fun build(meta: MetadataSchema): List<Project> {
         return when (meta) {
             is SourceMetadataSchema -> {
-                val language = meta.languages!!.first()
+                val language = meta.languages.first()
                 val projectKeys = TreeSet<String>()
-                meta.ingredients!!.values.map {
+                meta.ingredients.values.map {
                     it.scope!!.keys.forEach {
                         projectKeys.add(it)
                     }
                 }
 
-                val books = meta.localizedNames?.getBooks()!!
+                val books = meta.localizedNames.getBooks()
 
                 val vrs = findVersification(meta.ingredients!!)
 

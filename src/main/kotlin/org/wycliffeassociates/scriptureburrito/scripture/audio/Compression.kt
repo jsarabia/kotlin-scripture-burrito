@@ -1,12 +1,13 @@
-package org.wycliffeassociates.scriptureburrito
+package org.wycliffeassociates.scriptureburrito.scripture.audio
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonValue
 
-enum class Category(private val value: String) {
-    SOURCE("source"),
-    DERIVED("derived"),
-    TEMPLATE("template");
+enum class Compression(private val value: String) {
+    MP3("mp3"),
+    WAV("wav"),
+    OGG("ogg");
+
 
     override fun toString(): String {
         return this.value
@@ -18,7 +19,7 @@ enum class Category(private val value: String) {
     }
 
     companion object {
-        private val CONSTANTS: MutableMap<String, Category> = HashMap()
+        private val CONSTANTS: MutableMap<String, Compression> = HashMap()
 
         init {
             for (c in values()) {
@@ -27,7 +28,7 @@ enum class Category(private val value: String) {
         }
 
         @JsonCreator
-        fun fromValue(value: String): Category {
+        fun fromValue(value: String): Compression {
             val constant = CONSTANTS[value]
             requireNotNull(constant) { value }
             return constant

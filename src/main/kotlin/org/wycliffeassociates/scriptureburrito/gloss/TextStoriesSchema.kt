@@ -1,9 +1,8 @@
-package gloss
+package org.wycliffeassociates.scriptureburrito.gloss
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import gloss.TextStoriesSchema
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

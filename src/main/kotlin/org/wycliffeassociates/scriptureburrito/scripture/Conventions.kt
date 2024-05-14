@@ -1,8 +1,7 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import scripture.Conventions
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder

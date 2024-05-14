@@ -1,10 +1,10 @@
-package scripture
+package org.wycliffeassociates.scriptureburrito.scripture.video
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import scripture.Conventions
-import scripture.SignLanguageVideoTranslationSchema
+import org.wycliffeassociates.scriptureburrito.scripture.Conventions
+import org.wycliffeassociates.scriptureburrito.scripture.audio.Formats
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

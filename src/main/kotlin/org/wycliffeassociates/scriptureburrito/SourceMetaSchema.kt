@@ -1,3 +1,5 @@
+package org.wycliffeassociates.scriptureburrito
+
 import org.wycliffeassociates.scriptureburrito.MetaVersionSchema
 import org.wycliffeassociates.scriptureburrito.NormalizationSchema
 import com.fasterxml.jackson.annotation.JsonInclude
