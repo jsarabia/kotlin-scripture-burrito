@@ -10,10 +10,8 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import org.wycliffeassociates.scriptureburrito.Category
-import org.wycliffeassociates.scriptureburrito.FlavorSchema
-import org.wycliffeassociates.scriptureburrito.FlavorSchemaDeserializer
-import org.wycliffeassociates.scriptureburrito.Format
+import org.wycliffeassociates.scriptureburrito.flavor.FlavorSchema
+import org.wycliffeassociates.scriptureburrito.flavor.FlavorSchemaDeserializer
 import java.io.IOException
 
 

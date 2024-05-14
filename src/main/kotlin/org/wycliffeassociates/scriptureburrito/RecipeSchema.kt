@@ -8,29 +8,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder(
     "idAuthority", "operation", "data"
 )
-class RecipeSchema {
-
-
-
+class RecipeSchema(
     @get:JsonProperty("idAuthority")
     @set:JsonProperty("idAuthority")
     @JsonProperty("idAuthority")
-    var idAuthority: String? = null
-
-
+    var idAuthority: String,
 
     @get:JsonProperty("operation")
     @set:JsonProperty("operation")
     @JsonProperty("operation")
-    var operation: String? = null
-
-
+    var operation: String,
 
     @get:JsonProperty("data")
     @set:JsonProperty("data")
     @JsonProperty("data")
-    var data: Data? = null
-
+    var data: Data
+) {
     override fun toString(): String {
         val sb = StringBuilder()
         sb.append(RecipeSchema::class.java.name).append('@').append(

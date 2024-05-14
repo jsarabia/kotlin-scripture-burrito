@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.util.JSONPObject
-import org.json.JSONObject
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -47,7 +44,7 @@ class IdentificationSchema {
     @JsonProperty("primary")
     @JsonPropertyDescription("Contains the primary authority and identification information.")
     @JsonIgnore
-    var primary: Primary = Primary()
+    var primary: PrimaryIdentification = PrimaryIdentification()
     
     
     
