@@ -1,13 +1,8 @@
 package org.wycliffeassociates.resourcecontainer
 
-import Meta
-import MetadataDeserializer
-import MetadataSchema
 import com.fasterxml.jackson.annotation.JsonInclude.Include
-import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.module.SimpleModule
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.apache.tika.Tika
 import org.apache.tika.mime.MediaType
@@ -16,13 +11,12 @@ import org.wycliffeassociates.container.accessors.IContainerAccessor
 import org.wycliffeassociates.container.accessors.ZipAccessor
 import org.wycliffeassociates.resourcecontainer.entity.Content
 import org.wycliffeassociates.resourcecontainer.entity.Project
-import org.wycliffeassociates.resourcecontainer.errors.OutdatedRCException
-import org.wycliffeassociates.resourcecontainer.errors.RCException
-import org.wycliffeassociates.resourcecontainer.errors.UnsupportedRCException
+import org.wycliffeassociates.scriptureburrito.Meta
+import org.wycliffeassociates.scriptureburrito.MetadataDeserializer
+import org.wycliffeassociates.scriptureburrito.MetadataSchema
 import java.io.File
 import java.io.IOException
 import java.io.OutputStream
-import java.io.Reader
 
 
 const val MANIFEST_FILENAME = "metadata.json"

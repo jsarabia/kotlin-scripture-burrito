@@ -1,19 +1,7 @@
 package org.wycliffeassociates.resourcecontainer
 
-import DerivedMetaSchema
-import DerivedMetadataSchema
-import IngredientsSchema
-import LocalizedText
-import Meta
-import MetadataSchema
-import SourceMetaSchema
-import SourceMetadataSchema
-import TemplateMetaSchema
-import TemplateMetadataSchema
-import getBooks
-import org.wycliffeassociates.resourcecontainer.entity.DublinCore
 import org.wycliffeassociates.resourcecontainer.entity.Project
-import org.wycliffeassociates.scriptureburrito.Category
+import org.wycliffeassociates.scriptureburrito.*
 import java.io.File
 import java.util.*
 

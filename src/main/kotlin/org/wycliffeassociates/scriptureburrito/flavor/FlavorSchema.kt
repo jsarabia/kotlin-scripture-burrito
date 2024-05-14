@@ -7,8 +7,8 @@ import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import org.wycliffeassociates.scriptureburrito.scripture.ScriptureFlavorSchema
-import org.wycliffeassociates.scriptureburrito.scripture.audio.AudioFlavorSchema
+import org.wycliffeassociates.scriptureburrito.flavor.scripture.ScriptureFlavorSchema
+import org.wycliffeassociates.scriptureburrito.flavor.scripture.audio.AudioFlavorSchema
 import java.io.IOException
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

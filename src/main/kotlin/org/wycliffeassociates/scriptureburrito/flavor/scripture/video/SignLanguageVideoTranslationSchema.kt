@@ -3,17 +3,13 @@ package org.wycliffeassociates.scriptureburrito.flavor.scripture.video
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
-import org.wycliffeassociates.scriptureburrito.flavor.scripture.Conventions
-import org.wycliffeassociates.scriptureburrito.scripture.audio.Formats
-
+import org.wycliffeassociates.scriptureburrito.flavor.scripture.audio.Formats
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder(
     "name", "contentByChapter", "formats", "conventions"
 )
 class SignLanguageVideoTranslationSchema {
-
-
 
     @get:JsonProperty("name")
     @set:JsonProperty("name")

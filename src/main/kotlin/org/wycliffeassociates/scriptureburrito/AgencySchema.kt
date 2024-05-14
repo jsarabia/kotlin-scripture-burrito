@@ -12,45 +12,36 @@ class Agencies: ArrayList<AgencySchema>()
 @JsonPropertyOrder(
     "id", "name", "abbr", "url", "roles"
 )
-class AgencySchema {
-    
+class AgencySchema(
     @get:JsonProperty("id")
     @set:JsonProperty("id")
     @JsonProperty("id")
     @JsonPropertyDescription("Opaque system-specific identifier, prefixed with the name of the system as declared in idAuthorities.")
-    var id: String? = null
-    
-    
-    
+    var id: String,
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var name: LocalizedText? = null
-    
-    
-    
-    @get:JsonProperty("abbr")
-    @set:JsonProperty("abbr")
-    @JsonProperty("abbr")
-    @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var abbr: LocalizedText? = null
-    
-    
-    
-    @get:JsonProperty("url")
-    @set:JsonProperty("url")
-    @JsonProperty("url")
-    @JsonPropertyDescription("A valid **Uniform Resource Locator**.")
-    var url: String? = null
-    
-    
-    
+    var name: LocalizedText,
+
     @get:JsonProperty("roles")
     @set:JsonProperty("roles")
     @JsonProperty("roles")
     @JsonPropertyDescription("A list of roles indicating in which respects this agency was involved with the production of this burrito.")
     var roles: List<Role>? = ArrayList()
+) {
+    @get:JsonProperty("abbr")
+    @set:JsonProperty("abbr")
+    @JsonProperty("abbr")
+    @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
+    var abbr: LocalizedText? = null
+
+    @get:JsonProperty("url")
+    @set:JsonProperty("url")
+    @JsonProperty("url")
+    @JsonPropertyDescription("A valid **Uniform Resource Locator**.")
+    var url: String? = null
 
     override fun toString(): String {
         val sb = StringBuilder()

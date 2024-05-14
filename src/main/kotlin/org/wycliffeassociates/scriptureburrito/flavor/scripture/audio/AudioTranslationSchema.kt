@@ -1,4 +1,4 @@
-package org.wycliffeassociates.scriptureburrito.scripture.audio
+package org.wycliffeassociates.scriptureburrito.flavor.scripture.audio
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
