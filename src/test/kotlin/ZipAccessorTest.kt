@@ -1,8 +1,8 @@
-package org.wycliffeassociates.resourcecontainer
+package org.bibletranslationtools.resourcecontainer
 
 import org.junit.Assert
 import org.junit.Test
-import org.wycliffeassociates.container.accessors.ZipAccessor
+import org.bibletranslationtools.container.accessors.ZipAccessor
 import java.io.File
 import java.io.FileNotFoundException
 

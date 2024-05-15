@@ -1,4 +1,4 @@
-package org.wycliffeassociates.resourcecontainer
+package org.bibletranslationtools.resourcecontainer
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue

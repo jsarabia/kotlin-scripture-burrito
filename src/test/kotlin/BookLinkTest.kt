@@ -1,9 +1,9 @@
-package org.wycliffeassociates.resourcecontainer
+package org.bibletranslationtools.resourcecontainer
 
 import org.junit.Assert.*
 import org.junit.Ignore
 import org.junit.Test
-import org.wycliffeassociates.resourcecontainer.entity.Link
+import org.bibletranslationtools.resourcecontainer.entity.Link
 
 /**
  * Created by joel on 10/11/16.

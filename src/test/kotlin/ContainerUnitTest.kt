@@ -1,12 +1,12 @@
-package org.wycliffeassociates.resourcecontainer
+package org.bibletranslationtools.resourcecontainer
 
 import org.junit.Assert.*
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
-import org.wycliffeassociates.resourcecontainer.entity.dublincore
-import org.wycliffeassociates.resourcecontainer.errors.OutdatedRCException
-import org.wycliffeassociates.resourcecontainer.errors.UnsupportedRCException
+import org.bibletranslationtools.resourcecontainer.entity.dublincore
+import org.bibletranslationtools.resourcecontainer.errors.OutdatedRCException
+import org.bibletranslationtools.resourcecontainer.errors.UnsupportedRCException
 import java.io.File
 
 /**
@@ -143,13 +143,13 @@ class ContainerUnitTest {
             assertNotNull(rc)
             assertEquals("book", rc.type())
 
-            rc.manifest = org.wycliffeassociates.resourcecontainer.entity.manifest {
+            rc.manifest = org.bibletranslationtools.resourcecontainer.entity.manifest {
                 dublinCore = dublincore {
                     type = "testType"
                     format = "text/usfm"
                     identifier = "en-me"
                     rights = "CC BY-SA 4.0"
-                    language = org.wycliffeassociates.resourcecontainer.entity.language {
+                    language = org.bibletranslationtools.resourcecontainer.entity.language {
                         identifier = "en"
                         title = "English"
                         direction = "ltr"
@@ -180,13 +180,13 @@ class ContainerUnitTest {
             val containerFile = File(temp, it)
 
             BurritoContainer.create(containerFile) {
-                manifest = org.wycliffeassociates.resourcecontainer.entity.manifest {
+                manifest = org.bibletranslationtools.resourcecontainer.entity.manifest {
                     dublinCore = dublincore {
                         type = "book"
                         format = "text/usfm"
                         identifier = "en-me"
                         rights = "CC BY-SA 4.0"
-                        language = org.wycliffeassociates.resourcecontainer.entity.language {
+                        language = org.bibletranslationtools.resourcecontainer.entity.language {
                             identifier = "en"
                             title = "English"
                             direction = "ltr"

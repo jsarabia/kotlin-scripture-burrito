@@ -1,4 +1,4 @@
-package org.wycliffeassociates.resourcecontainer
+package org.bibletranslationtools.resourcecontainer
 
 val accessorListFilesTestCases = listOf(
     "" to 5,
