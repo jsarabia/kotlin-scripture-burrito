@@ -56,49 +56,49 @@ abstract class Meta(
     var comments: List<String> = ArrayList()
 ) {
 
-    @get:JsonProperty("category")
-    @set:JsonProperty("category")
-    @JsonProperty("category")
-    // Category gets read by Jackson in determining the subtype and won't get set via the constructor
-    // thus, we have to manually assign it as a lateinit
-    lateinit var category: Category
+//    @get:JsonProperty("category")
+//    @set:JsonProperty("category")
+//    @JsonProperty("category")
+//    // Category gets read by Jackson in determining the subtype and won't get set via the constructor
+//    // thus, we have to manually assign it as a lateinit
+//    lateinit var category: Category
 
-    override fun toString(): String {
-        val sb = StringBuilder()
-        sb.append(Meta::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        sb.append("category")
-        sb.append('=')
-        sb.append((if ((this.category == null)) "<null>" else this.category))
-        sb.append(',')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
-        }
-        return sb.toString()
-    }
-
-    override fun hashCode(): Int {
-        var result = 1
-        result = ((result * 31) + (if ((this.category == null)) 0 else this.category.hashCode()))
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
-        }
-        if ((other is Meta) == false) {
-            return false
-        }
-        val rhs = other
-        return ((this.category == rhs.category) || ((this.category != null) && (this.category == rhs.category)))
-    }
+//    override fun toString(): String {
+//        val sb = StringBuilder()
+//        sb.append(Meta::class.java.name).append('@').append(
+//            Integer.toHexString(
+//                System.identityHashCode(
+//                    this
+//                )
+//            )
+//        ).append('[')
+//        sb.append("category")
+//        sb.append('=')
+//        sb.append((if ((this.category == null)) "<null>" else this.category))
+//        sb.append(',')
+//        if (sb[sb.length - 1] == ',') {
+//            sb.setCharAt((sb.length - 1), ']')
+//        } else {
+//            sb.append(']')
+//        }
+//        return sb.toString()
+//    }
+//
+//    override fun hashCode(): Int {
+//        var result = 1
+//        result = ((result * 31) + (if ((this.category == null)) 0 else this.category.hashCode()))
+//        return result
+//    }
+//
+//    override fun equals(other: Any?): Boolean {
+//        if (other === this) {
+//            return true
+//        }
+//        if ((other is Meta) == false) {
+//            return false
+//        }
+//        val rhs = other
+//        return ((this.category == rhs.category) || ((this.category != null) && (this.category == rhs.category)))
+//    }
 
 }

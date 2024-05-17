@@ -9,76 +9,45 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
 @JsonPropertyOrder(
     "statement", "lang", "mimetype"
 )
-class ShortStatement {
-
-
-
+class ShortStatement(
     @get:JsonProperty("statement")
     @set:JsonProperty("statement")
     @JsonProperty("statement")
-    var statement: String? = null
-    
-    
-    
+    var statement: String,
+
     @get:JsonProperty("lang")
     @set:JsonProperty("lang")
     @JsonProperty("lang")
     @JsonPropertyDescription("A valid IETF language tag as specified by BCP 47.")
-    var lang: String? = null
-    
-    
-    
+    var lang: String? = null,
+
     @get:JsonProperty("mimetype")
     @set:JsonProperty("mimetype")
     @JsonProperty("mimetype")
     @JsonPropertyDescription("An IANA media type (also known as MIME type)")
     var mimetype: String? = null
-
+) {
     override fun toString(): String {
-        val sb = StringBuilder()
-        sb.append(ShortStatement::class.java.name).append('@').append(
-            Integer.toHexString(
-                System.identityHashCode(
-                    this
-                )
-            )
-        ).append('[')
-        sb.append("statement")
-        sb.append('=')
-        sb.append((if ((this.statement == null)) "<null>" else this.statement))
-        sb.append(',')
-        sb.append("lang")
-        sb.append('=')
-        sb.append((if ((this.lang == null)) "<null>" else this.lang))
-        sb.append(',')
-        sb.append("mimetype")
-        sb.append('=')
-        sb.append((if ((this.mimetype == null)) "<null>" else this.mimetype))
-        sb.append(',')
-        if (sb[sb.length - 1] == ',') {
-            sb.setCharAt((sb.length - 1), ']')
-        } else {
-            sb.append(']')
-        }
-        return sb.toString()
-    }
-
-    override fun hashCode(): Int {
-        var result = 1
-        result = ((result * 31) + (if ((this.statement == null)) 0 else statement.hashCode()))
-        result = ((result * 31) + (if ((this.lang == null)) 0 else lang.hashCode()))
-        result = ((result * 31) + (if ((this.mimetype == null)) 0 else mimetype.hashCode()))
-        return result
+        return "ShortStatement(statement=$statement, lang=$lang, mimetype=$mimetype)"
     }
 
     override fun equals(other: Any?): Boolean {
-        if (other === this) {
-            return true
-        }
-        if ((other is ShortStatement) == false) {
-            return false
-        }
-        val rhs = other
-        return ((((this.statement === rhs.statement) || ((this.statement != null) && (this.statement == rhs.statement))) && ((this.lang === rhs.lang) || ((this.lang != null) && (this.lang == rhs.lang)))) && ((this.mimetype === rhs.mimetype) || ((this.mimetype != null) && (this.mimetype == rhs.mimetype))))
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ShortStatement
+
+        if (statement != other.statement) return false
+        if (lang != other.lang) return false
+        if (mimetype != other.mimetype) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = statement?.hashCode() ?: 0
+        result = 31 * result + (lang?.hashCode() ?: 0)
+        result = 31 * result + (mimetype?.hashCode() ?: 0)
+        return result
     }
 }

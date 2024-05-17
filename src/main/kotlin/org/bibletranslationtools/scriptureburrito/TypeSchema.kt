@@ -10,11 +10,12 @@ import org.bibletranslationtools.scriptureburrito.flavor.FlavorType
 @JsonPropertyOrder(
     "flavorType"
 )
-class TypeSchema {
+class TypeSchema(
     @get:JsonProperty("flavorType")
     @set:JsonProperty("flavorType")
     @JsonProperty("flavorType")
-    var flavorType: FlavorType? = null
+    var flavorType: FlavorType
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

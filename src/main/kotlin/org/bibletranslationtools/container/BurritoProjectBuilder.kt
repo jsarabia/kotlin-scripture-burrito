@@ -1,7 +1,7 @@
 package org.bibletranslationtools.container
 
-import org.bibletranslationtools.resourcecontainer.entity.Project
 import org.bibletranslationtools.scriptureburrito.*
+import org.wycliffeassociates.resourcecontainer.entity.Project
 import java.io.File
 import java.util.*
 

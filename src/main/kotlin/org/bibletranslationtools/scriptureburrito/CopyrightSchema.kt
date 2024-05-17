@@ -32,7 +32,7 @@ class CopyrightSchema {
     @set:JsonProperty("shortStatements")
     @JsonProperty("shortStatements")
     @JsonPropertyDescription("A short statement to explain the copyright / license information to readers")
-    var shortStatements: List<ShortStatement>? = ArrayList()
+    var shortStatements: List<ShortStatement> = ArrayList()
 
     override fun toString(): String {
         val sb = StringBuilder()

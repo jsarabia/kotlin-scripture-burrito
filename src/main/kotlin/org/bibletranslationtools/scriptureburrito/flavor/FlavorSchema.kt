@@ -21,7 +21,7 @@ import java.io.IOException
 )
 abstract class FlavorSchema {
 
-    abstract var name: String?
+    abstract var name: String
 
     override fun toString(): String {
         val sb = StringBuilder()

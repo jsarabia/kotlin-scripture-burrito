@@ -18,7 +18,7 @@ class ScriptureFlavorSchema: FlavorSchema() {
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
-    override var name: String? = null
+    override lateinit var name: String
 
     @get:JsonProperty("usfmVersion")
     @set:JsonProperty("usfmVersion")

@@ -25,7 +25,7 @@ class AudioFlavorSchema(
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
-    override var name: String? = null
+    override lateinit var name: String
 
 
     @JsonProperty("conventions")

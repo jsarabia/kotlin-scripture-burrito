@@ -121,7 +121,7 @@ class MetadataDeserializer : JsonDeserializer<MetadataSchema?>() {
         val meta: Meta = mapper.readValue(node["meta"].toString(), Meta::class.java)
         // Category gets read by Jackson in determining the subtype and won't get set via the constructor
         // thus, we have to manually assign it as a lateinit
-        meta.category = mapper.readValue(node["meta"]["category"].toString(), Category::class.java)
+        //meta.category = mapper.readValue(node["meta"]["category"].toString(), Category::class.java)
 
         val type: TypeSchema = mapper.readValue(node["type"].toString(), TypeSchema::class.java)
         val format = mapper.readValue(node["format"].toString(), org.bibletranslationtools.scriptureburrito.Format::class.java)

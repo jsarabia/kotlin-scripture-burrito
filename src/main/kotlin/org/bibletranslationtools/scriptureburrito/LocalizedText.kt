@@ -12,19 +12,19 @@ import org.bibletranslationtools.scriptureburrito.Format
     "short",
     "long"
 )
-class LocalizedText {
-    @get:JsonProperty("abbr")
-    @set:JsonProperty("abbr")
-    @JsonProperty("abbr")
-    var abbr: Map<String, String>? = null
-
+class LocalizedText(
     @get:JsonProperty("short")
     @set:JsonProperty("short")
     @JsonProperty("short")
-    var short: Map<String, String>? = null
+    var short: HashMap<String, String>
+) {
+    @get:JsonProperty("abbr")
+    @set:JsonProperty("abbr")
+    @JsonProperty("abbr")
+    var abbr: HashMap<String, String> = HashMap()
 
     @get:JsonProperty("long")
     @set:JsonProperty("long")
     @JsonProperty("long")
-    var long: Map<String, String>? = null
+    var long: HashMap<String, String> = HashMap()
 }

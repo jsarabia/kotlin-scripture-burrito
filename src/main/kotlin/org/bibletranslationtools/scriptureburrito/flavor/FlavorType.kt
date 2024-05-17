@@ -10,11 +10,12 @@ import org.bibletranslationtools.scriptureburrito.ScopeSchema
     "flavor",
     "currentScope"
 )
-class FlavorType {
+class FlavorType(
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
-    var name: Flavor? = null
+    var name: Flavor
+) {
 
     @get:JsonProperty("flavor")
     @set:JsonProperty("flavor")
