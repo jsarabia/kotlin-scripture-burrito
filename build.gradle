@@ -16,7 +16,7 @@ plugins {
 }
 
 group 'org.bibletranslationtools'
-version '0.11.0'
+version '1.0.0'
 
 sourceCompatibility = 1.8
 
@@ -28,12 +28,11 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0"
 
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.9"
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.9'
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.15.1"
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.1'
     implementation "org.apache.tika:tika-core:2.0.0"
 
-    implementation "org.wycliffeassociates:kotlin-resource-container:0.12.0"
-    implementation "org.slf4j:slf4j-api:2.0.0-alpha1"
+    implementation "org.slf4j:slf4j-api:2.0.13"
 
 
     // https://mvnrepository.com/artifact/org.json/json
@@ -55,38 +54,5 @@ task sourceJar(type: Jar) {
     archiveClassifier = "sources"
     from('src/main/kotlin') {
         include '**'
-    }
-}
-afterEvaluate {
-    publishing {
-        publications {
-            mavenRelease(MavenPublication) {
-                from components.kotlin
-                groupId = group
-                artifactId = 'kotlin-resource-container'
-                version = version
-                artifact sourceJar
-                pom {
-                    name = 'kotlin-resource-container'
-                    licenses {
-                        license {
-                            name = 'MIT License'
-                            url = ' https://raw.githubusercontent.com/WycliffeAssociates/kotlin-resource-container/dev/LICENSE'
-                            distribution = 'repo'
-                        }
-                    }
-                }
-            }
-        }
-        repositories {
-            maven {
-                url = version.endsWith('SNAPSHOT') ? "${System.getenv("NEXUS_URL")}/repository/maven-snapshots/"
-                        : "${System.getenv("NEXUS_URL")}/repository/maven-releases/"
-                credentials {
-                    username = System.getenv("NEXUS_USER")
-                    password  = System.getenv("NEXUS_PASSWORD")
-                }
-            }
-        }
     }
 }

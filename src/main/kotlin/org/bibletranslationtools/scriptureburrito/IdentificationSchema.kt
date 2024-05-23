@@ -12,42 +12,32 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder
     "name", "description", "abbreviation", "primary", "upstream"
 )
 class IdentificationSchema {
-    
-    
-    
+
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var name: Map<String,String>? = null
-    
-    
-    
+    var name: HashMap<String,String>? = null
+
     @get:JsonProperty("description")
     @set:JsonProperty("description")
     @JsonProperty("description")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var description: Map<String,String>? = null
-    
-    
-    
+    var description: HashMap<String,String>? = null
+
     @get:JsonProperty("abbreviation")
     @set:JsonProperty("abbreviation")
     @JsonProperty("abbreviation")
     @JsonPropertyDescription("A textual string specified in one or multiple languages, indexed by IETF language tag.")
-    var abbreviation: Map<String,String>? = null
-    
-    
-    
+    var abbreviation: HashMap<String,String>? = null
+
     @get:JsonProperty("primary")
     @set:JsonProperty("primary")
     @JsonProperty("primary")
     @JsonPropertyDescription("Contains the primary authority and identification information.")
     @JsonIgnore
     var primary: PrimaryIdentification = PrimaryIdentification()
-    
-    
-    
+
     @get:JsonProperty("upstream")
     @set:JsonProperty("upstream")
     @JsonProperty("upstream")

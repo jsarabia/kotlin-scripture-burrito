@@ -2,7 +2,6 @@ package org.bibletranslationtools.scriptureburrito
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonPropertyDescription
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import java.util.HashMap
 class IdAuthoritiesSchema: HashMap<String, IdAuthority>()
@@ -20,5 +19,5 @@ class IdAuthority {
     @get:JsonProperty("name")
     @set:JsonProperty("name")
     @JsonProperty("name")
-    var name: Map<String, String>? = null
+    var name: HashMap<String, String>? = null
 }
